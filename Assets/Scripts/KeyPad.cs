@@ -10,7 +10,7 @@ public class KeyPad : MonoBehaviour
     [SerializeField] CodeDoorBehavior codeDoor; // Referencia al script CodeDoorBehavior
     public bool openTheDoor = false; // Indica si la puerta debe abrirse
     public string answer; // Código correcto
-    
+
     void Start()
     {
         openTheDoor = false;
@@ -18,13 +18,27 @@ public class KeyPad : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void Number(int number)
     {
-        Ans.text += number.ToString();
+        // Limitar la entrada a 4 caracteres
+        if (Ans.text.Length < 4)
+        {
+            Ans.text += number.ToString();
+        }
     }
+
+    public void Delete()
+    {
+        // Borrar el último carácter si el texto no está vacío
+        if (Ans.text.Length > 0)
+        {
+            Ans.text = Ans.text.Substring(0, Ans.text.Length - 1);
+        }
+    }
+
     public void Execute()
     {
         if (Ans.text == answer) // Verificar si el código ingresado es correcto
@@ -33,6 +47,13 @@ public class KeyPad : MonoBehaviour
             if (codeDoor != null)
             {
                 codeDoor.Toggle(); // Llamar a Toggle() para abrir/cerrar la puerta
+            }
+
+            // Reactivar los controles del jugador
+            InteractWithObjects interactScript = Object.FindFirstObjectByType<InteractWithObjects>();
+            if (interactScript != null)
+            {
+                interactScript.ReactivatePlayerControls();
             }
         }
         else
