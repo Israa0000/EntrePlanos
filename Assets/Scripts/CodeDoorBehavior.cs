@@ -43,7 +43,7 @@ public class CodeDoorBehavior : MonoBehaviour
     public void Toggle()
     {
 
-        if (keypad.openTheDoor|| puttingcode == true && PlayerPrefs.ketycode e)
+        if (keypad.openTheDoor)
         {
             KeyPad.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
