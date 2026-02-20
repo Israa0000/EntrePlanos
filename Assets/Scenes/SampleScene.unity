@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 134579060}
   m_Layer: 6
   m_Name: DoorWall (4)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 175227584}
   m_Layer: 6
   m_Name: Wall (3)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -726,7 +726,7 @@ Transform:
   m_GameObject: {fileID: 181889162}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.924, y: 1.01, z: 1.79}
+  m_LocalPosition: {x: -5.72, y: 1.01, z: 1.79}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 271573678}
   m_Layer: 6
   m_Name: DoorWall (6)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 472442952}
   m_Layer: 6
   m_Name: Wall (5)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 595737620}
   m_Layer: 6
   m_Name: Wall (6)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2019,7 +2019,7 @@ Transform:
   m_GameObject: {fileID: 595737619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -11.94, y: 2.808559, z: 9.54}
+  m_LocalPosition: {x: -12, y: 2.808559, z: 9.54}
   m_LocalScale: {x: 0.174355, y: 5.617118, z: 6.0942416}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2449,7 +2449,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675375676}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0673}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0635}
   m_LocalScale: {x: 0.05585439, y: 0.3560544, z: 5.7354274}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2675,7 +2675,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dde1ceb601455847bc4f5f93099cf55, type: 2}
+  - {fileID: 2100000, guid: 2e22ee01e85b3cf43a49c46c0397e9ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2863,7 +2863,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.1928, y: 1.9506, z: 5.974}
-  m_LocalScale: {x: 2, y: 3.9013, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1316326292}
@@ -3419,7 +3419,7 @@ GameObject:
   - component: {fileID: 816350159}
   m_Layer: 6
   m_Name: Wall
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3871,7 +3871,7 @@ GameObject:
   - component: {fileID: 933447601}
   m_Layer: 6
   m_Name: DoorWall (3)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4006,7 +4006,7 @@ GameObject:
   - component: {fileID: 937905242}
   m_Layer: 6
   m_Name: DoorWall (1)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4610,7 +4610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc5d2791361188847944579a32ddf8fb, type: 2}
+  - {fileID: 2100000, guid: 2e22ee01e85b3cf43a49c46c0397e9ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4749,7 +4749,7 @@ GameObject:
   - component: {fileID: 1021577085}
   m_Layer: 6
   m_Name: Wall (2)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5030,7 +5030,7 @@ GameObject:
   - component: {fileID: 1174670300}
   m_Layer: 6
   m_Name: Wall (5)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5144,7 +5144,7 @@ Transform:
   m_GameObject: {fileID: 1174670299}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.13, y: 2.808559, z: 10.69}
+  m_LocalPosition: {x: -15, y: 2.808559, z: 10.69}
   m_LocalScale: {x: 0.174355, y: 5.617118, z: 6.0942416}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6176,7 +6176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 021258930332ad04593eb874627d5364, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6330,7 +6330,7 @@ GameObject:
   - component: {fileID: 1364233411}
   m_Layer: 6
   m_Name: DoorWall
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6663,7 +6663,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dde1ceb601455847bc4f5f93099cf55, type: 2}
+  - {fileID: 2100000, guid: 2e22ee01e85b3cf43a49c46c0397e9ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7145,7 +7145,7 @@ GameObject:
   - component: {fileID: 1506380887}
   m_Layer: 6
   m_Name: DoorWall (2)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8184,7 +8184,7 @@ GameObject:
   - component: {fileID: 1795780131}
   m_Layer: 6
   m_Name: Wall (1)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8298,8 +8298,8 @@ Transform:
   m_GameObject: {fileID: 1795780130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.197914, y: 4.228559, z: 6.555}
-  m_LocalScale: {x: 0.174355, y: 2.8085594, z: 17.903704}
+  m_LocalPosition: {x: -15.197914, y: 4.228559, z: 6.551}
+  m_LocalScale: {x: 0.174355, y: 2.8085594, z: 23.326735}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8559,7 +8559,7 @@ GameObject:
   - component: {fileID: 1919211106}
   m_Layer: 6
   m_Name: DoorWall (8)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8673,7 +8673,7 @@ Transform:
   m_GameObject: {fileID: 1919211105}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.71, y: 2.808559, z: 6.55}
+  m_LocalPosition: {x: -4.879, y: 2.808559, z: 6.55}
   m_LocalScale: {x: 0.174355, y: 5.617118, z: 3.0919952}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8756,7 +8756,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dde1ceb601455847bc4f5f93099cf55, type: 2}
+  - {fileID: 2100000, guid: 2e22ee01e85b3cf43a49c46c0397e9ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9994,7 +9994,7 @@ GameObject:
   - component: {fileID: 1996565325}
   m_Layer: 6
   m_Name: Wall (4)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10480,7 +10480,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dde1ceb601455847bc4f5f93099cf55, type: 2}
+  - {fileID: 2100000, guid: 2e22ee01e85b3cf43a49c46c0397e9ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10604,7 +10604,7 @@ GameObject:
   - component: {fileID: 2146909933}
   m_Layer: 6
   m_Name: DoorWall (7)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

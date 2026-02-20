@@ -110,7 +110,15 @@ public class InteractWithObjects : MonoBehaviour
         if (interactCollider.CompareTag("Key"))
             interactionWithKey = true;
 
-        if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
+        if (interactCollider.CompareTag("LockedDoor"))
+        {
+            interactionWithDoor = true;
+        }
+        if (interactCollider.CompareTag("Door"))
+        {
+            interactionWithDoor = true;
+        }
+        if (interactCollider.CompareTag("CodeDoor"))
         {
             interactionWithDoor = true;
         }
@@ -121,7 +129,15 @@ public class InteractWithObjects : MonoBehaviour
         if (interactCollider.CompareTag("Key"))
             interactionWithKey = false;
 
-        if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
+        if (interactCollider.CompareTag("LockedDoor"))
+        {
+            interactionWithDoor = false;
+        }
+        if (interactCollider.CompareTag("Door"))
+        {
+            interactionWithDoor = false;
+        }
+        if (interactCollider.CompareTag("CodeDoor"))
         {
             interactionWithDoor = false;
         }
