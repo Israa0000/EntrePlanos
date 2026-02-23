@@ -7,8 +7,8 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] GameObject Door; // Referencia a la puerta (puede ser normal o bloqueada)
     [SerializeField] GameObject Keypad;
     [SerializeField] Canvas CodeCanvas;
+    [SerializeField] FirstPersonController firstPersonController; // Ahora asignable desde el Inspector
     KeyPad keyPadScript;
-    FirstPersonController firstPersonController;
     public bool interactionWithKey = false;
     public bool interactionWithDoor = false;
 
@@ -16,12 +16,11 @@ public class InteractWithObjects : MonoBehaviour
     public void Start()
     {
         keyPadScript = Keypad.GetComponent<KeyPad>();
-        firstPersonController = GetComponent<FirstPersonController>();
         CodeCanvas.enabled = false;
     }
+
     private void Update()
     {
-       //print(Door);
         if (interactionWithKey && Input.GetKeyDown(KeyCode.E))
         {
             GotKeyMessage();
@@ -31,11 +30,10 @@ public class InteractWithObjects : MonoBehaviour
 
         if (interactionWithDoor && Input.GetKeyDown(KeyCode.E))
         {
-            // Verificar si la puerta tiene el componente DoorController (puerta bloqueada)
             CodeDoorBehavior codeDoor = Door.GetComponent<CodeDoorBehavior>();
             if (codeDoor)
             {
-               HandleCodeDoor(codeDoor);
+                HandleCodeDoor(codeDoor);
                 return;
             }
 
@@ -46,36 +44,46 @@ public class InteractWithObjects : MonoBehaviour
                 return;
             }
 
-            // Verificar si la puerta tiene el componente NormalDoorBehavior (puerta normal)
             NormalDoorBehavior normalDoor = Door.GetComponent<NormalDoorBehavior>();
             if (normalDoor != null)
             {
-                normalDoor.Toggle(); // Alternar entre abrir y cerrar
+                normalDoor.Toggle();
                 return;
             }
         }
+
+        if (CodeCanvas.enabled && Input.GetKeyDown(KeyCode.F))
+        {
+            CodeCanvas.enabled = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            firstPersonController.EnableControls(true);
+        }
     }
+
     private void HandleCodeDoor(CodeDoorBehavior codeDoor)
     {
-        if(keyPadScript.openTheDoor == false)
+        if (keyPadScript.openTheDoor == false)
         {
             CodeCanvas.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            firstPersonController.EnableControls(false);
         }
     }
+
     private void HandleLockedDoor(DoorController lockedDoor)
     {
-        // Desbloquear la puerta si el jugador tiene la llave
         if (playerGotKey && !lockedDoor.isUnlocked)
         {
             UnlockDoorMessage();
             lockedDoor.Unlock();
-            playerGotKey = false; // La llave se consume
+            playerGotKey = false;
             return;
         }
 
-        // Alternar entre abrir y cerrar la puerta si está desbloqueada y no está animando
         if (lockedDoor.isUnlocked && !lockedDoor.isAnimating)
         {
             if (lockedDoor.isOpen)
@@ -98,13 +106,21 @@ public class InteractWithObjects : MonoBehaviour
 
     private void OnTriggerEnter(Collider interactCollider)
     {
-        Door = interactCollider.gameObject; // Actualizar la referencia a la puerta
+        Door = interactCollider.gameObject;
         if (interactCollider.CompareTag("Key"))
             interactionWithKey = true;
 
-        if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door")|| interactCollider.CompareTag("CodeDoor"))
+        if (interactCollider.CompareTag("LockedDoor"))
         {
-            interactionWithDoor = true;         
+            interactionWithDoor = true;
+        }
+        if (interactCollider.CompareTag("Door"))
+        {
+            interactionWithDoor = true;
+        }
+        if (interactCollider.CompareTag("CodeDoor"))
+        {
+            interactionWithDoor = true;
         }
     }
 
@@ -113,12 +129,27 @@ public class InteractWithObjects : MonoBehaviour
         if (interactCollider.CompareTag("Key"))
             interactionWithKey = false;
 
-        if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
+        if (interactCollider.CompareTag("LockedDoor"))
         {
-            print("B");
-            
             interactionWithDoor = false;
-            
         }
+        if (interactCollider.CompareTag("Door"))
+        {
+            interactionWithDoor = false;
+        }
+        if (interactCollider.CompareTag("CodeDoor"))
+        {
+            interactionWithDoor = false;
+        }
+    }
+
+    public void ReactivatePlayerControls()
+    {
+        CodeCanvas.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Reactivar los controles del jugador
+        firstPersonController.EnableControls(true);
     }
 }
