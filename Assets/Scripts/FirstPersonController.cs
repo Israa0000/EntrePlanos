@@ -26,8 +26,9 @@ public class FirstPersonController : MonoBehaviour
     public float gravity = 20f;
     public float jumpSpeed = 7f;
 
-    // [Header("Bools")]
-    // public bool useControls;
+    [Header("Footstep Sounds")]
+    [SerializeField] AudioSource footstepAudioSource; // Componente AudioSource para reproducir los pasos
+    [SerializeField] AudioClip footstepClip; // Clip de audio para los pasos
 
     CharacterController cc;
     float cameraPitch = 0f;
@@ -47,6 +48,16 @@ public class FirstPersonController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (footstepAudioSource == null)
+        {
+            Debug.LogError("AudioSource para los pasos no está asignado.");
+        }
+        else
+        {
+            footstepAudioSource.clip = footstepClip;
+            footstepAudioSource.loop = true; // Hacer que el sonido se repita mientras se mantenga presionada la tecla
+        }
     }
 
     public void EnableControls(bool enable)
@@ -135,10 +146,32 @@ public class FirstPersonController : MonoBehaviour
             {
                 verticalVelocity = jumpSpeed;
             }
+
+            // Reproducir sonido de pasos al presionar W
+            if (Input.GetKey(KeyCode.W))
+            {
+                if (!footstepAudioSource.isPlaying)
+                {
+                    footstepAudioSource.Play();
+                }
+            }
+            else
+            {
+                if (footstepAudioSource.isPlaying)
+                {
+                    footstepAudioSource.Stop();
+                }
+            }
         }
         else
         {
             verticalVelocity -= gravity * Time.deltaTime;
+
+            // Detener el sonido si el jugador no está en el suelo
+            if (footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.Stop();
+            }
         }
 
         Vector3 velocity = moveDir * speed + Vector3.up * verticalVelocity;
