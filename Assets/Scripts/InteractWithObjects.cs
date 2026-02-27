@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class InteractWithObjects : MonoBehaviour
 {
-    [SerializeField] GameObject Key;
-    [SerializeField] GameObject Door; // Referencia a la puerta (puede ser normal o bloqueada)
 
     [SerializeField] GameObject pickUpOrigin;
     [SerializeField] GameObject Door;
@@ -14,16 +12,12 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] Canvas CodeCanvas;
     [SerializeField] FirstPersonController firstPersonController; // Ahora asignable desde el Inspector
     KeyPad keyPadScript;
-    public bool interactionWithKey = false;
     FirstPersonController firstPersonController;
     [SerializeField] float pickUpRadius = 2f;
     public bool interactionWithDoor = false;
 
-    bool playerGotKey = false;
     public void Start()
     {
-        keyPadScript = Keypad.GetComponent<KeyPad>();
-        CodeCanvas.enabled = false;
         if (Keypad != null) keyPadScript = Keypad.GetComponent<KeyPad>();
         firstPersonController = GetComponent<FirstPersonController>();
         if (CodeCanvas != null) CodeCanvas.enabled = false;
@@ -31,12 +25,6 @@ public class InteractWithObjects : MonoBehaviour
 
     private void Update()
     {
-        if (interactionWithKey && Input.GetKeyDown(KeyCode.E))
-        {
-            GotKeyMessage();
-            playerGotKey = true;
-            if (Key != null) Destroy(Key);
-        }
 
         if (interactionWithDoor && Input.GetKeyDown(KeyCode.E))
         {
@@ -62,13 +50,7 @@ public class InteractWithObjects : MonoBehaviour
             }
         }
 
-        if (CodeCanvas.enabled && Input.GetKeyDown(KeyCode.F))
-        {
-            CodeCanvas.enabled = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
 
-            firstPersonController.EnableControls(true);
         RaycastHit hit;
 
 
@@ -96,10 +78,8 @@ public class InteractWithObjects : MonoBehaviour
 
     private void HandleCodeDoor(CodeDoorBehavior codeDoor)
     {
-        if (keyPadScript.openTheDoor == false)
         if (keyPadScript != null && keyPadScript.openTheDoor == false)
         {
-            CodeCanvas.enabled = true;
             if (CodeCanvas != null) CodeCanvas.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -110,12 +90,10 @@ public class InteractWithObjects : MonoBehaviour
 
     private void HandleLockedDoor(DoorController lockedDoor)
     {
-        if (playerGotKey && !lockedDoor.isUnlocked)
         if (!lockedDoor.isUnlocked)
         {
             UnlockDoorMessage();
             lockedDoor.Unlock();
-            playerGotKey = false;
             return;
         }
 
@@ -134,26 +112,12 @@ public class InteractWithObjects : MonoBehaviour
         }
     }
 
-    void GotKeyMessage() { print("llave obtenida"); }
     void UnlockDoorMessage() { print("puerta desbloqueada"); }
     void OpenDoorMessage() { print("puerta abierta"); }
     void CloseDoorMessage() { print("puerta cerrada"); }
 
     private void OnTriggerEnter(Collider interactCollider)
     {
-        Door = interactCollider.gameObject;
-        if (interactCollider.CompareTag("Key"))
-            interactionWithKey = true;
-
-        if (interactCollider.CompareTag("LockedDoor"))
-        {
-            interactionWithDoor = true;
-        }
-        if (interactCollider.CompareTag("Door"))
-        {
-            interactionWithDoor = true;
-        }
-        if (interactCollider.CompareTag("CodeDoor"))
         if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
         {
             Door = interactCollider.gameObject;
@@ -163,28 +127,12 @@ public class InteractWithObjects : MonoBehaviour
 
     private void OnTriggerExit(Collider interactCollider)
     {
-        if (interactCollider.CompareTag("Key"))
-            interactionWithKey = false;
-
-        if (interactCollider.CompareTag("LockedDoor"))
-        {
-            interactionWithDoor = false;
-        }
-        if (interactCollider.CompareTag("Door"))
-        {
-            interactionWithDoor = false;
-        }
-        if (interactCollider.CompareTag("CodeDoor"))
         if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
         {
             interactionWithDoor = false;
         }
     }
 
-    public void ReactivatePlayerControls()
-        CodeCanvas.enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
     private void OnDrawGizmos()
     {
