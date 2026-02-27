@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IPickable
 {
-    public void PickUp();
-    public void Drop();
+    bool IsPicked { get; }
+    void OnPickUp(GameObject picker);
+    void OnDrop();
 }
