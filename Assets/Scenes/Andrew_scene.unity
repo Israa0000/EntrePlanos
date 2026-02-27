@@ -819,15 +819,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181889162}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9974928, z: -0, w: -0.07076887}
-  m_LocalPosition: {x: -5.1649623, y: 1.01, z: 1.8293787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.72, y: 1.01, z: 1.79}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 760289456}
   - {fileID: 1829429883}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -188.116, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &181889167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,17 +1532,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &371759316 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4981891327500887964, guid: 974ca1c286c859e468b2943da73d5598, type: 3}
-  m_PrefabInstance: {fileID: 6382202502559439105}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bfe4825fb713846a7352f933053b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &412959229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4379,7 +4368,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -6102,77 +6091,6 @@ MonoBehaviour:
   codeDoor: {fileID: 1417201220}
   openTheDoor: 0
   answer: 2456
---- !u!1 &1343870526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1343870529}
-  - component: {fileID: 1343870528}
-  - component: {fileID: 1343870527}
-  m_Layer: 0
-  m_Name: Event 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1343870527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343870526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2feaa0c1174360e40882e4668aa6c523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puerta: {fileID: 371759316}
-  scaryDoorSpeed: 8
-  normalDoorSpeed: 0.4651008
-  lockTime: 10
-  light: {fileID: 552785180}
---- !u!65 &1343870528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343870526}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1343870529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343870526}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.126, y: 0.687, z: 9.22}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364233410
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,7 +7727,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687658946}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1687658949
 Camera:
   m_ObjectHideFlags: 0
@@ -7843,7 +7761,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -11089,4 +11007,3 @@ SceneRoots:
   - {fileID: 123704423}
   - {fileID: 552785182}
   - {fileID: 1437435019}
-  - {fileID: 1343870529}

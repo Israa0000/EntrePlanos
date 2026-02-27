@@ -12,10 +12,12 @@ public class NormalDoorBehavior : MonoBehaviour
     [Tooltip("Si true, interpola también la rotación (añade openAngle a la rotación inicial en Y).")]
     [SerializeField] bool lerpRotation = true;
     [SerializeField] float openAngle = 90f;
-    [SerializeField] float doorSpeed = 2f;
+    [SerializeField] public float doorSpeed = 2f;
 
     [SerializeField] AudioClip openSound;
     [SerializeField] AudioClip closeSound;
+
+    public bool isLocked = false; 
 
     Vector3 openPos;
     Vector3 closedPos;
@@ -46,19 +48,19 @@ public class NormalDoorBehavior : MonoBehaviour
 
     public void Toggle()
     {
-        if (isAnimating) return;
+        if (isAnimating || isLocked) return; // Añade isLocked
         StartCoroutine(ToggleDoor(!isOpen));
     }
 
     public void Open()
     {
-        if (isAnimating || isOpen) return;
+        if (isAnimating || isOpen || isLocked) return; // Añade isLocked
         StartCoroutine(ToggleDoor(true));
     }
 
-    public void Close()
+    public void Close(bool force = false)
     {
-        if (isAnimating || !isOpen) return;
+        if (isAnimating || (!isOpen && !force)) return;
         StartCoroutine(ToggleDoor(false));
     }
 
