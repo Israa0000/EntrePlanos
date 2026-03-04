@@ -5,6 +5,7 @@ public class movimiento : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public GameObject cameraSwitcher;
+    [SerializeField] Animator animator;
     CameraSwitcher cameraSwitcherScript;
     public Vector2 input;
     public Vector2 lastinput;
@@ -52,6 +53,16 @@ public class movimiento : MonoBehaviour
 
         // Normalizar para evitar velocidad extra en diagonal
         input = input.normalized;
+        animator.SetFloat("XMovement", lastinput.x);
+        animator.SetFloat("YMovement", lastinput.y);
+
+        if (input != Vector2.zero)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else { 
+            animator.SetBool("IsMoving", false);
+        }
     }
 
     void FixedUpdate()
@@ -59,6 +70,8 @@ public class movimiento : MonoBehaviour
         // Movimiento con Rigidbody2D
         rb.MovePosition(rb.position + input * speed * Time.fixedDeltaTime);
     }
+
+    
 
     
 }

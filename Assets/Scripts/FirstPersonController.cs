@@ -33,6 +33,8 @@ public class FirstPersonController : MonoBehaviour
     float cameraPitch = 0f;
     float verticalVelocity = 0f;
 
+    private bool controlsEnabled = true; // Nueva variable para habilitar/deshabilitar controles
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -47,22 +49,30 @@ public class FirstPersonController : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void EnableControls(bool enable)
+    {
+        controlsEnabled = enable;
+
+        // Bloquear o desbloquear el cursor
+        Cursor.lockState = enable ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !enable;
+    }
+
     void Update()
     {
+        if (!controlsEnabled) return; // Si los controles están deshabilitados, no hacer nada
+
         if (cameraSwitcherScript.movement == MovementType.Movement3D)
         {
             HandleMouseLook();
             HandleMovement();
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }  
+        }
     }
 
     void HandleMouseLook()
     {
+        if (!controlsEnabled) return; // Evitar que la cámara se mueva si los controles están deshabilitados
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -85,6 +95,8 @@ public class FirstPersonController : MonoBehaviour
 
     void HandleMovement()
     {
+        if (!controlsEnabled) return; // Evitar que el jugador se mueva si los controles están deshabilitados
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
