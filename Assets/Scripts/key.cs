@@ -17,19 +17,22 @@ public class Key : MonoBehaviour, IPickable
 
     void Awake()
     {
-        holdLocalPosition = new Vector3(0.6f, -0.1f, 0.6f);
+        holdLocalPosition = new Vector3(0f, -0.25f, 0.8f);
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
     }
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (!isPicked)
             {
-                GameObject picker = currentPicker != null ? currentPicker : FindPlayerInRange();
-                if (picker != null) OnPickUp(picker);
+                if (playerInRange)
+                {
+                    GameObject picker = currentPicker != null ? currentPicker : FindPlayerInRange();
+                    if (picker != null) OnPickUp(picker);
+                }
             }
             else
             {
