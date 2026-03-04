@@ -12,12 +12,14 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] Canvas CodeCanvas;
     [SerializeField] FirstPersonController firstPersonController; // Ahora asignable desde el Inspector
     KeyPad keyPadScript;
+    FirstPersonController firstPersonController;
     [SerializeField] float pickUpRadius = 2f;
     public bool interactionWithDoor = false;
 
     public void Start()
     {
         if (Keypad != null) keyPadScript = Keypad.GetComponent<KeyPad>();
+        firstPersonController = GetComponent<FirstPersonController>();
         if (CodeCanvas != null) CodeCanvas.enabled = false;
     }
 
@@ -131,15 +133,6 @@ public class InteractWithObjects : MonoBehaviour
         }
     }
 
-    public void ReactivatePlayerControls()
-    {
-        CodeCanvas.enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Reactivar los controles del jugador
-        firstPersonController.EnableControls(true);
-    }
 
     private void OnDrawGizmos()
     {
