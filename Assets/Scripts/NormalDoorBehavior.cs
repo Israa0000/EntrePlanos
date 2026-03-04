@@ -17,7 +17,7 @@ public class NormalDoorBehavior : MonoBehaviour
     [SerializeField] AudioClip openSound;
     [SerializeField] AudioClip closeSound;
 
-    public bool isLocked = false; 
+    public bool isLocked = false;
 
     Vector3 openPos;
     Vector3 closedPos;
@@ -49,27 +49,27 @@ public class NormalDoorBehavior : MonoBehaviour
     public void Toggle()
     {
         if (isAnimating || isLocked) return; // Añade isLocked
-        StartCoroutine(ToggleDoor(!isOpen));
+        StartCoroutine(ToggleDoor(!isOpen, true));
     }
 
     public void Open()
     {
         if (isAnimating || isOpen || isLocked) return; // Añade isLocked
-        StartCoroutine(ToggleDoor(true));
+        StartCoroutine(ToggleDoor(true, true));
     }
 
-    public void Close(bool force = false)
+    public void Close(bool force = false, bool playSound = true)
     {
         if (isAnimating || (!isOpen && !force)) return;
-        StartCoroutine(ToggleDoor(false));
+        StartCoroutine(ToggleDoor(false, playSound));
     }
 
-    IEnumerator ToggleDoor(bool open)
+    public IEnumerator ToggleDoor(bool open, bool playSound)
     {
         isAnimating = true;
 
-        // Reproducir sonido correspondiente
-        if (audioSource != null)
+        // Reproducir sonido correspondiente si playSound es true
+        if (playSound && audioSource != null)
         {
             if (open && openSound != null)
                 audioSource.PlayOneShot(openSound);
