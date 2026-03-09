@@ -1,10 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuSystem : MonoBehaviour
 {
     const string DefaultSceneName = "MainScene";
+
+    public VHSTransition vhsTransition;
 
     public void Continue()
     {
@@ -16,12 +17,13 @@ public class MenuSystem : MonoBehaviour
             if (!string.IsNullOrEmpty(savedScene))
             {
                 sceneToLoad = savedScene;
-                SceneManager.sceneLoaded += OnSceneLoaded_SetPlayer;
             }
         }
 
-        Debug.Log($"MenuSystem: Cargando escena '{sceneToLoad}'");
-        SceneManager.LoadScene(sceneToLoad);
+        Debug.Log($"MenuSystem: Cargando escena '{sceneToLoad}' con transición VHS");
+        vhsTransition.PlayTransition(sceneToLoad);
+
+        SceneManager.sceneLoaded += OnSceneLoaded_SetPlayer;
     }
 
     private void OnSceneLoaded_SetPlayer(Scene scene, LoadSceneMode mode)
@@ -37,7 +39,7 @@ public class MenuSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("MenuSystem: No se encontró GameObject con tag 'Player'. Asegúrate de etiquetar al jugador.");
+            Debug.LogWarning("MenuSystem: No se encontró GameObject con tag 'Player'.");
         }
     }
 
