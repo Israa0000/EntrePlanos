@@ -12,8 +12,11 @@ public class DoorController : MonoBehaviour
     [Tooltip("Si true, interpola también la rotación (añade openAngle a la rotación inicial en Y).")]
     [SerializeField] bool lerpRotation = true;
     [SerializeField] float openAngle = 90f;
-
-    [SerializeField] float doorSpeed = 2f;
+    [SerializeField] float doorSpeed;
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip closeSound;
+    [SerializeField] AudioClip unlockSound;
+    [SerializeField] AudioSource audioSource;
 
     Vector3 startPos;
     Vector3 openPos;
@@ -43,6 +46,7 @@ public class DoorController : MonoBehaviour
     public void Unlock()
     {
         isUnlocked = true;
+        audioSource.PlayOneShot(unlockSound);
         Debug.Log("puerta desbloqueada (DoorController)");
     }
 
@@ -55,12 +59,14 @@ public class DoorController : MonoBehaviour
     public void Open()
     {
         if (!isUnlocked || isAnimating || isOpen) return;
+        audioSource.PlayOneShot(openSound);
         StartCoroutine(ToggleDoor(true));
     }
 
     public void Close()
     {
         if (isAnimating || !isOpen) return;
+        audioSource.PlayOneShot(closeSound);
         StartCoroutine(ToggleDoor(false));
     }
 

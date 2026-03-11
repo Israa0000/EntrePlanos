@@ -8,16 +8,22 @@ public class ScaryEvent_1 : MonoBehaviour
     [SerializeField] float normalDoorSpeed = 0.4651008f;
     [SerializeField] float lockTime = 10f;
     [SerializeField] GameObject light;
+    [SerializeField] GameObject lamp;
+    [SerializeField] GameObject bulb;
     [SerializeField] AudioClip fastCloseSound;
     [SerializeField] AudioClip bulbBreakSound;
     [SerializeField] AudioClip runingSound;
     [SerializeField] AudioClip cryingSound;
+    [SerializeField] Vector3 lampFinalPosition;
+    [SerializeField] Quaternion lampFinalRotation;
 
+    Transform lampTransform;
     private bool eventoActivado = false;
     private AudioSource audioSource;
 
     void Start()
     {
+        lampTransform = lamp.transform;
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -29,6 +35,9 @@ public class ScaryEvent_1 : MonoBehaviour
         {
             eventoActivado = true;
             light.SetActive(false); // Apaga la luz
+            bulb.SetActive(false); // Apaga la bombilla
+            lampTransform.position = lampFinalPosition;
+            lampTransform.rotation = lampFinalRotation;
             StartCoroutine(CerrarYPonerRapida());
         }
     }
