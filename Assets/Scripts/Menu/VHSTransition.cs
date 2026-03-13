@@ -29,14 +29,11 @@ public class VHSTransition : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        if (transitionVolume != null)
-        {
-            transitionVolume.profile.TryGet(out grain);
-            transitionVolume.profile.TryGet(out chroma);
-            transitionVolume.profile.TryGet(out distortion);
-            transitionVolume.profile.TryGet(out vignette);
-            transitionVolume.profile.TryGet(out colorAdjust);
-        }
+        transitionVolume.profile.TryGet(out grain);
+        transitionVolume.profile.TryGet(out chroma);
+        transitionVolume.profile.TryGet(out distortion);
+        transitionVolume.profile.TryGet(out vignette);
+        transitionVolume.profile.TryGet(out colorAdjust);
     }
 
     public void PlayTransition(string sceneName)
@@ -44,9 +41,11 @@ public class VHSTransition : MonoBehaviour
         if (menuCanvas != null)
             menuCanvas.gameObject.SetActive(false);
         else print("Menu canvas no esta asignado");
+
         if (vhsCanvas != null)
             vhsCanvas.gameObject.SetActive(true);
         else print("Menu de transicion no esta asignado");
+
         StartCoroutine(DoTransition(sceneName));
     }
 
@@ -79,30 +78,24 @@ public class VHSTransition : MonoBehaviour
         while (t > 0)
         {
             t -= Time.deltaTime * transitionSpeed;
-            if (fadeImage != null)
-                fadeImage.color = new Color(0, 0, 0, t);
+            fadeImage.color = new Color(0, 0, 0, t);
 
-            if (grain != null) grain.intensity.value = Mathf.PingPong(Time.time * 2f, grainIntensityMax);
-            if (chroma != null) chroma.intensity.value = t * 0.3f;
+            grain.intensity.value = Mathf.PingPong(Time.time * 2f, grainIntensityMax);
+            chroma.intensity.value = t * 0.3f;
 
-            if (colorAdjust != null)
-            {
-                colorAdjust.postExposure.value = t * -1.2f;
-                colorAdjust.saturation.value = 0f;
-                colorAdjust.colorFilter.value = Color.white;
-            }
+            colorAdjust.postExposure.value = t * -1.2f;
+            colorAdjust.saturation.value = 0f;
+            colorAdjust.colorFilter.value = Color.white;
 
             yield return null;
         }
 
-        if (grain != null) grain.intensity.value = 0;
-        if (chroma != null) chroma.intensity.value = 0;
-        if (vignette != null) vignette.intensity.value = 0;
-        if (colorAdjust != null)
-        {
-            colorAdjust.postExposure.value = 0f;
-            colorAdjust.saturation.value = 0f;
-            colorAdjust.colorFilter.value = Color.white;
-        }
+        grain.intensity.value = 0;
+        chroma.intensity.value = 0;
+        vignette.intensity.value = 0;
+        colorAdjust.postExposure.value = 0f;
+        colorAdjust.saturation.value = 0f;
+        colorAdjust.colorFilter.value = Color.white;
+
     }
 }
