@@ -281,9 +281,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466239476}
     m_Modifications:
+    - target: {fileID: 1734057673906184, guid: 4737cade184983e44b580bdebbea33a6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1742064889662300, guid: 4737cade184983e44b580bdebbea33a6, type: 3}
       propertyPath: m_Name
       value: 'BookShelf '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742064889662300, guid: 4737cade184983e44b580bdebbea33a6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4080242134782694, guid: 4737cade184983e44b580bdebbea33a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -368,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123704423}
   - component: {fileID: 123704422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,6 +470,14 @@ PrefabInstance:
     - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_Name
       value: Book_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578713992247824, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4077954582164608, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_LocalScale.x
@@ -1145,7 +1161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 194275276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HidePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1313,7 +1329,7 @@ GameObject:
   - component: {fileID: 265891777}
   - component: {fileID: 265891776}
   - component: {fileID: 265891775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1843,7 +1859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 382523800}
   - component: {fileID: 382523801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2243,7 @@ GameObject:
   - component: {fileID: 436768604}
   - component: {fileID: 436768603}
   - component: {fileID: 436768606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Event 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,7 +2667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 552785182}
   - component: {fileID: 552785181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3270,9 +3286,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466239476}
     m_Modifications:
+    - target: {fileID: 1194426446124186, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742084556290698, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806724182240856, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876010882852552, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1957751506826012, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957751506826012, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1957751506826012, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
       propertyPath: m_IsActive
@@ -3633,6 +3669,14 @@ PrefabInstance:
     - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_Name
       value: Book_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578713992247824, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4077954582164608, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_LocalScale.x
@@ -4348,6 +4392,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578713992247824, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4077954582164608, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3501743
@@ -4876,7 +4928,7 @@ MonoBehaviour:
   EnemyMeshAgent: {fileID: 943587201}
   speed: 1.2
   isChasing: 0
-  rangeToChase: 4.4
+  rangeToChase: 6.6
   player: {fileID: 181889166}
 --- !u!4 &943587203
 Transform:
@@ -5182,7 +5234,7 @@ GameObject:
   - component: {fileID: 1016642939}
   - component: {fileID: 1016642940}
   - component: {fileID: 1016642941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table (1)
   m_TagString: HideTable
   m_Icon: {fileID: 0}
@@ -5536,9 +5588,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466239476}
     m_Modifications:
+    - target: {fileID: 1194426446124186, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742084556290698, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806724182240856, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876010882852552, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1957751506826012, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
       propertyPath: m_Name
       value: Lamp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957751506826012, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4671455591498022, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -5594,7 +5666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108884755902363616, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
       propertyPath: m_Intensity
-      value: 1.04
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 108884755902363616, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7022,9 +7098,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466239476}
     m_Modifications:
+    - target: {fileID: 1157291430788440, guid: 2995ed82e4e1c1147a017067d6ac3d76, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1661972614933500, guid: 2995ed82e4e1c1147a017067d6ac3d76, type: 3}
       propertyPath: m_Name
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661972614933500, guid: 2995ed82e4e1c1147a017067d6ac3d76, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1661972614933500, guid: 2995ed82e4e1c1147a017067d6ac3d76, type: 3}
       propertyPath: m_TagString
@@ -7394,7 +7478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437435019}
   - component: {fileID: 1437435018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12332,7 +12416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466239476}
   - component: {fileID: 1466239477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 3DMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13256,6 +13340,14 @@ PrefabInstance:
     - target: {fileID: 1247205062817960, guid: ee9f1f023dde11343a2d1672c8929102, type: 3}
       propertyPath: m_Name
       value: Chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247205062817960, guid: ee9f1f023dde11343a2d1672c8929102, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825873514563108, guid: ee9f1f023dde11343a2d1672c8929102, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4394833495561032, guid: ee9f1f023dde11343a2d1672c8929102, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15592,9 +15684,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466239476}
     m_Modifications:
+    - target: {fileID: 1041530426233196, guid: 81fc7effd0386764781ee9fcbbd39bf0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1163033574844990, guid: 81fc7effd0386764781ee9fcbbd39bf0, type: 3}
       propertyPath: m_Name
       value: PictureFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163033574844990, guid: 81fc7effd0386764781ee9fcbbd39bf0, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4240822575173696, guid: 81fc7effd0386764781ee9fcbbd39bf0, type: 3}
       propertyPath: m_LocalScale.x
@@ -16011,6 +16111,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1527309540856934, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578713992247824, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4077954582164608, guid: 7f800f58f6f744e4c901f3fd51f67d67, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3501743
@@ -16314,6 +16422,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 980594309202898831, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654683165728642975, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6487128384135679343, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
       propertyPath: doorSpeed
       value: 0.4651008
@@ -16337,6 +16453,14 @@ PrefabInstance:
     - target: {fileID: 7879310287658716330, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
       propertyPath: m_Name
       value: LockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086333856234546120, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310275973511969755, guid: 5f9476c274b77b94396c5e49494356da, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
