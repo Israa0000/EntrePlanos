@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
-    [Tooltip("Si se deja vacío, se guardará la posición del mismo GameObject del checkpoint.")]
+    [Tooltip("Si se deja vacío, se guardara la posicion del mismo GameObject del checkpoint.")]
     public Transform spawnTransform;
 
     void Reset()

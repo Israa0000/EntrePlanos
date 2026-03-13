@@ -21,7 +21,6 @@ public class VHSTransition : MonoBehaviour
 
     private FilmGrain grain;
     private ChromaticAberration chroma;
-    private LensDistortion distortion;
     private Vignette vignette;
     private ColorAdjustments colorAdjust;
 
@@ -31,7 +30,6 @@ public class VHSTransition : MonoBehaviour
 
         transitionVolume.profile.TryGet(out grain);
         transitionVolume.profile.TryGet(out chroma);
-        transitionVolume.profile.TryGet(out distortion);
         transitionVolume.profile.TryGet(out vignette);
         transitionVolume.profile.TryGet(out colorAdjust);
     }
@@ -51,19 +49,20 @@ public class VHSTransition : MonoBehaviour
 
     private IEnumerator DoTransition(string sceneName)
     {
-        float t = 0;
+        float time = 0;
 
-        while (t < 1)
+        if (vignette != null) vignette.intensity.value = 0.6f;
+        if (colorAdjust != null) colorAdjust.postExposure.value = -1.2f;
+
+        while (time < 1)
         {
-            t += Time.deltaTime * transitionSpeed;
+            time += Time.deltaTime * transitionSpeed;
+            print(time);
 
             if (grain != null) grain.intensity.value = Mathf.PingPong(Time.time * 2f, grainIntensityMax);
 
             if (chroma != null) chroma.intensity.value = Mathf.PingPong(Time.time * 0.5f, 0.3f);
 
-            if (vignette != null) vignette.intensity.value = 0.6f;
-
-            if (colorAdjust != null) colorAdjust.postExposure.value = -1.2f;
 
             yield return null;
         }
@@ -74,16 +73,15 @@ public class VHSTransition : MonoBehaviour
             yield return null;
         }
 
-        t = 1;
-        while (t > 0)
+        time = 1;
+        while (time > 0)
         {
-            t -= Time.deltaTime * transitionSpeed;
-            fadeImage.color = new Color(0, 0, 0, t);
+            time -= Time.deltaTime * transitionSpeed;
 
             grain.intensity.value = Mathf.PingPong(Time.time * 2f, grainIntensityMax);
-            chroma.intensity.value = t * 0.3f;
+            chroma.intensity.value = time * 0.3f;
 
-            colorAdjust.postExposure.value = t * -1.2f;
+            colorAdjust.postExposure.value = time * -1.2f;
             colorAdjust.saturation.value = 0f;
             colorAdjust.colorFilter.value = Color.white;
 
