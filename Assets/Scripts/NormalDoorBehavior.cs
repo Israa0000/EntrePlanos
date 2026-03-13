@@ -12,8 +12,12 @@ public class NormalDoorBehavior : MonoBehaviour
     [Tooltip("Si true, interpola también la rotación (añade openAngle a la rotación inicial en Y).")]
     [SerializeField] bool lerpRotation = true;
     [SerializeField] float openAngle = 90f;
-    //investigar sobre planarios
-    [SerializeField] float doorSpeed = 2f;
+    [SerializeField] public float doorSpeed = 2f;
+
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip closeSound;
+
+    public bool isLocked = false;
 
     Vector3 openPos;
     Vector3 closedPos;
@@ -23,38 +27,55 @@ public class NormalDoorBehavior : MonoBehaviour
     public bool isOpen { get; private set; } = false;
     public bool isAnimating { get; private set; } = false;
 
+    AudioSource audioSource;
+    float doorAnimationTime; // Tiempo total de la animación
+
     void Start()
     {
-        
         var startPos = transform.position;
         closedPos = new Vector3(absoluteClosedPosition.x, startPos.y, absoluteClosedPosition.z);
         openPos = new Vector3(absoluteOpenPosition.x, startPos.y, absoluteOpenPosition.z);
 
         closedRot = transform.rotation;
         openRot = lerpRotation ? Quaternion.Euler(closedRot.eulerAngles.x, closedRot.eulerAngles.y + openAngle, closedRot.eulerAngles.z) : closedRot;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void Toggle()
     {
-            if (isAnimating) return;
-            StartCoroutine(ToggleDoor(!isOpen));
+        if (isAnimating || isLocked) return; // Añade isLocked
+        StartCoroutine(ToggleDoor(!isOpen, true));
     }
 
     public void Open()
     {
-        if (isAnimating || isOpen) return;
-        StartCoroutine(ToggleDoor(true));
+        if (isAnimating || isOpen || isLocked) return; // Añade isLocked
+        StartCoroutine(ToggleDoor(true, true));
     }
 
-    public void Close()
+    public void Close(bool force = false, bool playSound = true)
     {
-        if (isAnimating || !isOpen) return;
-        StartCoroutine(ToggleDoor(false));
+        if (isAnimating || (!isOpen && !force)) return;
+        StartCoroutine(ToggleDoor(false, playSound));
     }
 
-    IEnumerator ToggleDoor(bool open)
+    public IEnumerator ToggleDoor(bool open, bool playSound)
     {
         isAnimating = true;
+
+        // Reproducir sonido correspondiente si playSound es true
+        if (playSound && audioSource != null)
+        {
+            if (open && openSound != null)
+                audioSource.PlayOneShot(openSound);
+            else if (!open && closeSound != null)
+                audioSource.PlayOneShot(closeSound);
+        }
 
         Vector3 fromPos = transform.position;
         Quaternion fromRot = transform.rotation;
