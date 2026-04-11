@@ -55,6 +55,16 @@ public class movimiento : MonoBehaviour
 
         // Normalizar para evitar velocidad extra en diagonal
         input = input.normalized;
+        animator.SetFloat("XMovement", lastinput.x);
+        animator.SetFloat("YMovement", lastinput.y);
+
+        if (input != Vector2.zero)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else { 
+            animator.SetBool("IsMoving", false);
+        }
     }
 
     void FixedUpdate()
@@ -88,6 +98,8 @@ public class movimiento : MonoBehaviour
             }
 
     }
+
+    
 
     
 }
