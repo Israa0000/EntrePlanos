@@ -56,5 +56,9 @@
         "temp/": true,
         "Temp/": true
     },
+<<<<<<< HEAD
+    "dotnet.defaultSolution": "EntrePlanos3.sln"
+=======
     "dotnet.defaultSolution": "EntrePlanos.sln"
+>>>>>>> 01728a8c1f718dee04bbf193bd93713cc4bc5182
 }
