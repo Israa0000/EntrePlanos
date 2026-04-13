@@ -5194,6 +5194,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5275,6 +5276,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!224 &977065846 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3326986736438751211, guid: 69e94fc5507a4a14aa715fd7f2b7fd86, type: 3}
@@ -6034,7 +6079,7 @@ GameObject:
   - component: {fileID: 1201973167}
   m_Layer: 6
   m_Name: DoorWall (5)
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7013,7 +7058,7 @@ Transform:
   m_GameObject: {fileID: 1364233410}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.08, y: 1.42, z: 6.683}
+  m_LocalPosition: {x: -18.07, y: 1.42, z: 6.683}
   m_LocalScale: {x: 0.174355, y: 2.8085594, z: 8.236631}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14094,6 +14139,7 @@ GameObject:
   - component: {fileID: 1829429884}
   - component: {fileID: 1829429885}
   - component: {fileID: 1829429886}
+  - component: {fileID: 1829429887}
   m_Layer: 6
   m_Name: collider de interactuar
   m_TagString: InteractCollider
@@ -14153,6 +14199,7 @@ MonoBehaviour:
   Door: {fileID: 1417201217}
   Keypad: {fileID: 1339798414}
   Crosshair: {fileID: 2101779479}
+  Camera: {fileID: 1687658946}
   CodeCanvas: {fileID: 1883662644}
   firstPersonController: {fileID: 181889167}
   pickUpRadius: 2
@@ -14173,6 +14220,23 @@ MonoBehaviour:
   hidePosition: {fileID: 194275276}
   table: {fileID: 1016642938}
   player: {fileID: 181889162}
+--- !u!114 &1829429887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829429882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeaa052243f35443a83debee990ba8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CrossHair: {fileID: 2101779479}
+  OpenDoorSprite: {fileID: 21300000, guid: 8fd24312136232246b75ab523b7b4049, type: 3}
+  LockedDoorSprite: {fileID: 21300000, guid: b8f51c236294de54a91f28b09949b287, type: 3}
+  CodeDoorSprite: {fileID: 21300000, guid: 96c2c436575a6324182b928386e6c609, type: 3}
+  PickUpSprite: {fileID: 21300000, guid: 91bf3d3aca61907448528b24b9969cdb, type: 3}
 --- !u!1 &1883662641
 GameObject:
   m_ObjectHideFlags: 0
@@ -16411,9 +16475,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2101779480}
   - component: {fileID: 2101779482}
-  - component: {fileID: 2101779481}
+  - component: {fileID: 2101779483}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16428,7 +16492,7 @@ RectTransform:
   m_GameObject: {fileID: 2101779479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1883662645}
@@ -16438,7 +16502,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2101779481
+--- !u!222 &2101779482
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101779479}
+  m_CullTransparentMesh: 1
+--- !u!114 &2101779483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16458,7 +16530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 91bf3d3aca61907448528b24b9969cdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16468,14 +16540,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &2101779482
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101779479}
-  m_CullTransparentMesh: 1
 --- !u!1 &2105126873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1194426446124186, guid: 10fc85374832c474e940baee7f8230fb, type: 3}

@@ -10,6 +10,7 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] GameObject Door;
     [SerializeField] GameObject Keypad;
     [SerializeField] GameObject Crosshair;
+    [SerializeField] GameObject Camera;
     [SerializeField] Canvas CodeCanvas;
     [SerializeField] FirstPersonController firstPersonController; // Ahora asignable desde el Inspector
     KeyPad keyPadScript;
@@ -93,6 +94,15 @@ public class InteractWithObjects : MonoBehaviour
     {
         if (!lockedDoor.isUnlocked)
         {
+            Key[] keys = Camera.GetComponentsInChildren<Key>();
+            bool hasKey = keys != null && keys.Length > 0;
+
+            if (!hasKey)
+            {
+                print("Necesitas una llave para abrir esta puerta");
+                return;
+            }
+
             UnlockDoorMessage();
             lockedDoor.Unlock();
             return;
