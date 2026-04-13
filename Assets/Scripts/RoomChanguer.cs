@@ -15,7 +15,7 @@ public class RoomChanguer : MonoBehaviour
 
     void Start()
     {
-        camera = GameObject.Find("Main Camera");
+        camera = GameObject.Find("Pixel Perfect Camera");
         cameraPosChanguer = camera.GetComponent<CameraPosChanguer>();
     }
 
