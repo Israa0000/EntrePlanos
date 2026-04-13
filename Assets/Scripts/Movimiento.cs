@@ -81,20 +81,20 @@ public class movimiento : MonoBehaviour
                 if (input != Vector2.zero)
                 {
                     lastInput = input;
-                    animator.SetFloat("MoveX", input.x);
-                    animator.SetFloat("moveY", input.y);
+                    animator.SetFloat("XMovement", input.x);
+                    animator.SetFloat("YMovement", input.y);
                     isMoving = true;
                  
                                 
                 }
                 else
                 {
-                    animator.SetFloat("moveX", lastInput.x);
-                    animator.SetFloat("moveY", lastInput.y);
+                    animator.SetFloat("XMovement", lastInput.x);
+                    animator.SetFloat("YMovement", lastInput.y);
                     isMoving = false;
                 }
 
-                animator.SetBool("isMoving", isMoving);
+                animator.SetBool("IsMoving", isMoving);
             }
 
     }

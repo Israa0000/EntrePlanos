@@ -21,6 +21,7 @@ public class FirstPersonController : MonoBehaviour
     public float maxLookAngle = 80f; // clamp para pitch
     public bool smoothLook = false;
     public float lookSmoothSpeed = 10f; // mayor = más rápido al suavizar
+    public bool cameraBlock = false;
 
     [Header("Jump & Gravity")]
     public float gravity = 20f;
@@ -49,7 +50,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        if (cameraSwitcherScript.movement == MovementType.Movement3D)
+        if (cameraSwitcherScript.movement == MovementType.Movement3D && cameraBlock == false) 
         {
             HandleMouseLook();
             HandleMovement();
