@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-<<<<<<< Updated upstream
-      value: {fileID: 1709946532, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
+<<<<<<< HEAD
+      value: {fileID: 64176878, guid: 1da6f6bae6818db4ab60c576053bfe36, type: 3}
 =======
-      value: {fileID: -898105210, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
->>>>>>> Stashed changes
+      value: {fileID: 1709946532, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
+>>>>>>> 36f727419ea3b56b4dc9212a9ee44b04057cb9d2
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,11 +48,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-<<<<<<< Updated upstream
-    - {fileID: 1709946532, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
+<<<<<<< HEAD
+    - {fileID: 64176878, guid: 1da6f6bae6818db4ab60c576053bfe36, type: 3}
 =======
-    - {fileID: -898105210, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
->>>>>>> Stashed changes
+    - {fileID: 1709946532, guid: 146902f42535dbf4a82e27dfcfd9ccf1, type: 3}
+>>>>>>> 36f727419ea3b56b4dc9212a9ee44b04057cb9d2
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
