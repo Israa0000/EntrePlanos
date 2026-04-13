@@ -8,7 +8,7 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] GameObject Keypad;
     [SerializeField] Canvas CodeCanvas;
     KeyPad keyPadScript;
-    FirstPersonController firstPersonController;
+    [SerializeField] FirstPersonController firstPersonController;
     public bool interactionWithKey = false;
     public bool interactionWithDoor = false;
 
@@ -16,7 +16,6 @@ public class InteractWithObjects : MonoBehaviour
     public void Start()
     {
         keyPadScript = Keypad.GetComponent<KeyPad>();
-        firstPersonController = GetComponent<FirstPersonController>();
         CodeCanvas.enabled = false;
     }
     private void Update()
@@ -59,9 +58,11 @@ public class InteractWithObjects : MonoBehaviour
     {
         if(keyPadScript.openTheDoor == false)
         {
+            print("aa");
             CodeCanvas.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            firstPersonController.cameraBlock = true;
         }
     }
     private void HandleLockedDoor(DoorController lockedDoor)

@@ -23,12 +23,24 @@ public class KeyPad : MonoBehaviour
 
     public void Number(int number)
     {
-        Ans.text += number.ToString();
+        if (Ans.text.Length < 4) {
+            Ans.text += number.ToString();
+        }
+       
+    }
+
+    public void DeleteNumber() {
+        if (Ans.text.Length > 0)
+        {
+            Ans.text = Ans.text.Remove(Ans.text.Length - 1);        
+        }
+
     }
     public void Execute()
     {
         if (Ans.text == answer) // Verificar si el código ingresado es correcto
         {
+            print("correcto");
             openTheDoor = true;
             if (codeDoor != null)
             {
@@ -39,6 +51,11 @@ public class KeyPad : MonoBehaviour
         {
             openTheDoor = false;
             Debug.Log("Código incorrecto");
+            print(Ans.text);
         }
+    }
+
+    public void ClearInput() {
+        Ans.text = "";
     }
 }
