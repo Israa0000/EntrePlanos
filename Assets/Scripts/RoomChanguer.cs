@@ -15,7 +15,7 @@ public class RoomChanguer : MonoBehaviour
 
     void Start()
     {
-        camera = GameObject.Find("Pixel Perfect Camera");
+        camera = GameObject.Find("Main Camera");
         cameraPosChanguer = camera.GetComponent<CameraPosChanguer>();
     }
 
@@ -41,13 +41,13 @@ public class RoomChanguer : MonoBehaviour
                 break;
 
             case Direction.Left:
-                player.transform.position += new Vector3(-1, 0, 0);
+                player.transform.position += new Vector3(-2, 0, 0);
                 cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x - 20, camera.transform.position.y, camera.transform.position.z));
                 break;
 
             case Direction.Right:
                 player.transform.position += new Vector3(2, 0, 0);
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x + 27, camera.transform.position.y, camera.transform.position.z));
+                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x + 20, camera.transform.position.y, camera.transform.position.z));
                 break;
         }
     }
