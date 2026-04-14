@@ -11,11 +11,11 @@ public class UI_SpritesBehavior : MonoBehaviour
     [SerializeField] Sprite CodeDoorSprite;
     [SerializeField] Sprite PickUpSprite;
     DoorController lockedDoorScript;
-    Image crosshairImage; // <-- cambiado
+    Image crosshairImage; 
 
     void Start()
     {
-        crosshairImage = CrossHair.GetComponent<Image>(); // <-- cambiado
+        crosshairImage = CrossHair.GetComponent<Image>();
     }
 
     void Update()

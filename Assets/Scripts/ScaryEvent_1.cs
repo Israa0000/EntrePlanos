@@ -9,7 +9,6 @@ public class ScaryEvent_1 : MonoBehaviour
     [SerializeField] float lockTime = 10f;
     [SerializeField] GameObject light;
     [SerializeField] GameObject lamp;
-    [SerializeField] GameObject bulb;
     [SerializeField] AudioClip fastCloseSound;
     [SerializeField] AudioClip bulbBreakSound;
     [SerializeField] AudioClip runingSound;
@@ -35,7 +34,6 @@ public class ScaryEvent_1 : MonoBehaviour
         {
             eventoActivado = true;
             light.SetActive(false); // Apaga la luz
-            bulb.SetActive(false); // Apaga la bombilla
             lampTransform.position = lampFinalPosition;
             lampTransform.rotation = lampFinalRotation;
             StartCoroutine(CerrarYPonerRapida());
