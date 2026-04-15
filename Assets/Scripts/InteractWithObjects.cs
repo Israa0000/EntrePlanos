@@ -9,6 +9,8 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] GameObject pickUpOrigin;
     [SerializeField] GameObject Door;
     [SerializeField] GameObject Keypad;
+    [SerializeField] GameObject Crosshair;
+    [SerializeField] GameObject Camera;
     [SerializeField] Canvas CodeCanvas;
     [SerializeField] FirstPersonController firstPersonController; // Ahora asignable desde el Inspector
     KeyPad keyPadScript;
@@ -17,18 +19,20 @@ public class InteractWithObjects : MonoBehaviour
 
     public void Start()
     {
-        if (Keypad != null) keyPadScript = Keypad.GetComponent<KeyPad>();
-        if (CodeCanvas != null) CodeCanvas.enabled = false;
+        keyPadScript = Keypad.GetComponent<KeyPad>();
+        Crosshair.SetActive(false);
+        Keypad.SetActive(false);
     }
 
     private void Update()
     {
-
-        if (interactionWithDoor && Input.GetKeyDown(KeyCode.E))
+        
+        if (interactionWithDoor && Input.GetMouseButtonDown(0))
         {
             CodeDoorBehavior codeDoor = Door.GetComponent<CodeDoorBehavior>();
             if (codeDoor)
             {
+                Keypad.SetActive(true);
                 HandleCodeDoor(codeDoor);
                 return;
             }
@@ -90,6 +94,15 @@ public class InteractWithObjects : MonoBehaviour
     {
         if (!lockedDoor.isUnlocked)
         {
+            Key[] keys = Camera.GetComponentsInChildren<Key>();
+            bool hasKey = keys != null && keys.Length > 0;
+
+            if (!hasKey)
+            {
+                print("Necesitas una llave para abrir esta puerta");
+                return;
+            }
+
             UnlockDoorMessage();
             lockedDoor.Unlock();
             return;
@@ -118,6 +131,7 @@ public class InteractWithObjects : MonoBehaviour
     {
         if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
         {
+            Crosshair.SetActive(true);
             Door = interactCollider.gameObject;
             interactionWithDoor = true;
         }
@@ -127,6 +141,7 @@ public class InteractWithObjects : MonoBehaviour
     {
         if (interactCollider.CompareTag("LockedDoor") || interactCollider.CompareTag("Door") || interactCollider.CompareTag("CodeDoor"))
         {
+            Crosshair.SetActive(false);
             interactionWithDoor = false;
         }
     }
