@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class CodeDoorBehavior : MonoBehaviour
@@ -19,6 +20,7 @@ public class CodeDoorBehavior : MonoBehaviour
 
     [Tooltip("El Keypad Aquí")]
     [SerializeField] GameObject KeyPad;
+    [SerializeField] FirstPersonController fpc;
     KeyPad keypad;
 
     Vector3 openPos;
@@ -28,6 +30,8 @@ public class CodeDoorBehavior : MonoBehaviour
 
     public bool isOpen { get; private set; } = false;
     public bool isAnimating { get; private set; } = false;
+
+    private bool playerPressEsc = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,16 +44,24 @@ public class CodeDoorBehavior : MonoBehaviour
         openRot = lerpRotation ? Quaternion.Euler(closedRot.eulerAngles.x, closedRot.eulerAngles.y + openAngle, closedRot.eulerAngles.z) : closedRot;
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            CloseKeyPad();
+
+        }
+    }
+
     public void Toggle()
     {
-
-        if (keypad.openTheDoor)
+        if (!keypad.openTheDoor)
         {
-            KeyPad.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            if (isAnimating) return;
-            StartCoroutine(ToggleDoor(!isOpen));
+            CloseKeyPad();
+            print("sas");
+            CheckOpenDoor();
         }
+       
     }
 
     public void Open()
@@ -90,4 +102,18 @@ public class CodeDoorBehavior : MonoBehaviour
         isOpen = open;
         isAnimating = false;
     }
+
+    private void CloseKeyPad() {
+     
+         KeyPad.SetActive(false);
+         Cursor.lockState = CursorLockMode.Locked;
+         fpc.cameraBlock = false;
+         keypad.openTheDoor = false;        
+    }
+
+    private void CheckOpenDoor() {
+        if (isAnimating) return;
+        StartCoroutine(ToggleDoor(!isOpen));
+    }   
+    
 }

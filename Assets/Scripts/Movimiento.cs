@@ -7,9 +7,10 @@ public class movimiento : MonoBehaviour
     [SerializeField] public GameObject cameraSwitcher;
     [SerializeField] Animator animator;
     CameraSwitcher cameraSwitcherScript;
-    public Vector2 input;
+    private Vector2 input;
     public Vector2 lastinput;
 
+    private bool isMoving;
     void Awake()
     {
         cameraSwitcherScript = cameraSwitcher.GetComponent<CameraSwitcher>();
@@ -50,6 +51,7 @@ public class movimiento : MonoBehaviour
                 lastinput = new Vector3(-1, 0, 0);
             }
         } 
+        animationSistem();
 
         // Normalizar para evitar velocidad extra en diagonal
         input = input.normalized;
@@ -69,6 +71,32 @@ public class movimiento : MonoBehaviour
     {
         // Movimiento con Rigidbody2D
         rb.MovePosition(rb.position + input * speed * Time.fixedDeltaTime);
+    }
+
+    private void animationSistem()   //Sistema de animacion
+    {
+        if (animator != null)
+            {
+                Vector2 lastInput = new Vector2();
+                if (input != Vector2.zero)
+                {
+                    lastInput = input;
+                    animator.SetFloat("XMovement", input.x);
+                    animator.SetFloat("YMovement", input.y);
+                    isMoving = true;
+                 
+                                
+                }
+                else
+                {
+                    animator.SetFloat("XMovement", lastInput.x);
+                    animator.SetFloat("YMovement", lastInput.y);
+                    isMoving = false;
+                }
+
+                animator.SetBool("IsMoving", isMoving);
+            }
+
     }
 
     
