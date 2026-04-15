@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private float distanceToTarget;
     private AIPath path;
     private Vector2 direction;
-    private Vector2 lastPosition;
+
     private Vector2 movement;
     private bool isMoving;
 
@@ -44,24 +44,24 @@ public class Enemy : MonoBehaviour
 
         direction = (target.position - transform.position).normalized;
 
-        movement = (Vector2)transform.position - lastPosition;
-        lastPosition = transform.position;
 
-        animationSistem(movement);
+        Vector2 vel = path.velocity;
+        animationSistem(vel);
+
 
     }
 
 
 
-    private void animationSistem(Vector2 movement)   //Sistema de animacion
+    private void animationSistem(Vector2 vel)   //Sistema de animacion
     {
         if (animator != null)
             {
                 
-                if(movement != Vector2.zero)
+                if(vel != Vector2.zero)
                 {
-                    animator.SetFloat("XMovement", direction.x);
-                    animator.SetFloat("YMovement", direction.y);
+                    animator.SetFloat("XMovement", vel.x);
+                    animator.SetFloat("YMovement", vel.y);
                     isMoving = true;
                    
                 }
