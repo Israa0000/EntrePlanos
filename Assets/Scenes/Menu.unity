@@ -7374,8 +7374,8 @@ MonoBehaviour:
   - {fileID: 1400067889}
   - {fileID: 1257481460}
   loop: 1
-  segmentDuration: 5
-  waitAtWaypoint: 1
+  segmentDuration: 4.22
+  waitAtWaypoint: 0
   lookAtNextWaypoint: 1
   playOnEnable: 1
 --- !u!114 &656194620
@@ -10860,6 +10860,10 @@ PrefabInstance:
       propertyPath: transitionVolume
       value: 
       objectReference: {fileID: 652071279}
+    - target: {fileID: 2355860112965910520, guid: 78e08a59ae8d53b4487e39c3a8310e1b, type: 3}
+      propertyPath: grainIntensityMax
+      value: 3.78
+      objectReference: {fileID: 0}
     - target: {fileID: 4964537359106850274, guid: 78e08a59ae8d53b4487e39c3a8310e1b, type: 3}
       propertyPath: m_Name
       value: VHS Manager
