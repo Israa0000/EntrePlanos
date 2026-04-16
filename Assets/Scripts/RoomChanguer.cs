@@ -10,8 +10,11 @@ public class RoomChanguer : MonoBehaviour
     public enum Direction { Up, Down, Left, Right }
     public Direction direction;
     [SerializeField] GameObject player;
+    [SerializeField] Transform spawnPoint;
+    [SerializeField] int cameraDistance = 20;
     GameObject camera;
     CameraPosChanguer cameraPosChanguer;
+    
 
     void Start()
     {
@@ -33,21 +36,23 @@ public class RoomChanguer : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                player.transform.position += new Vector3(0, 1, 0);
+                player.transform.position = spawnPoint.transform.position;
+                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x, camera.transform.position.y + cameraDistance, camera.transform.position.z));
                 break;
 
             case Direction.Down:
-                player.transform.position += new Vector3(0, -1, 0);
+                player.transform.position = spawnPoint.transform.position;
+                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x, camera.transform.position.y - cameraDistance, camera.transform.position.z));
                 break;
 
             case Direction.Left:
-                player.transform.position += new Vector3(-2, 0, 0);
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x - 20, camera.transform.position.y, camera.transform.position.z));
+                player.transform.position = spawnPoint.transform.position;
+                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x - cameraDistance, camera.transform.position.y, camera.transform.position.z));
                 break;
 
             case Direction.Right:
-                player.transform.position += new Vector3(2, 0, 0);
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x + 20, camera.transform.position.y, camera.transform.position.z));
+                player.transform.position = spawnPoint.transform.position;
+                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x + cameraDistance, camera.transform.position.y, camera.transform.position.z));
                 break;
         }
     }
