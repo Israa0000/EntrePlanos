@@ -11,6 +11,7 @@ TagManager:
   - LockedDoor
   - Key
   - CodeDoor
+  - Target
   layers:
   - Default
   - TransparentFX
