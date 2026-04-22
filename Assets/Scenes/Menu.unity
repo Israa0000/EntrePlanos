@@ -1159,6 +1159,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!4 &189305011
 Transform:
   m_ObjectHideFlags: 0
@@ -8294,7 +8314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5622641, g: 0.5622641, b: 0.5622641, a: 1}
+  m_Color: {r: 0.8037735, g: 0.7992239, b: 0.7992239, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9374,7 +9394,6 @@ MonoBehaviour:
   lockTime: 10
   light: {fileID: 116554184}
   lamp: {fileID: 1234753812}
-  bulb: {fileID: 1760119207}
   fastCloseSound: {fileID: 8300000, guid: 2cafb8edb7913f246b667410a3c5e1f4, type: 3}
   bulbBreakSound: {fileID: 8300000, guid: 05a1072ab4da77c4e89f245f7d178f57, type: 3}
   runingSound: {fileID: 8300000, guid: cf8282ff67adf474b8b5b02622bef325, type: 3}
@@ -9586,6 +9605,7 @@ MonoBehaviour:
   openAngle: 90
   doorSpeed: 2
   KeyPad: {fileID: 0}
+  fpc: {fileID: 0}
 --- !u!23 &1165112023
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11810,11 +11830,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee9f1f023dde11343a2d1672c8929102, type: 3}
---- !u!1 &1760119207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1806724182240856, guid: 10fc85374832c474e940baee7f8230fb, type: 3}
-  m_PrefabInstance: {fileID: 1854533215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1760520000
 GameObject:
   m_ObjectHideFlags: 0

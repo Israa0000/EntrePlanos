@@ -104,11 +104,11 @@ public class CodeDoorBehavior : MonoBehaviour
     }
 
     private void CloseKeyPad() {
-     
+
          KeyPad.SetActive(false);
          Cursor.lockState = CursorLockMode.Locked;
-         fpc.cameraBlock = false;
-         keypad.openTheDoor = false;        
+         fpc.EnableControls(true);
+        keypad.openTheDoor = false;        
     }
 
     private void CheckOpenDoor() {

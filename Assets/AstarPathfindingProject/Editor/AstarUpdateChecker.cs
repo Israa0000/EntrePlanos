@@ -181,9 +181,9 @@ namespace Pathfinding {
 			// as then the collected statistics will be a bit more accurate
 			var offsetMinutes = (Application.isPlaying && Time.time > 60) || AstarPath.active != null ? -20 : 20;
 			var minutesUntilUpdate = lastUpdateCheck.AddDays(updateCheckRate).AddMinutes(offsetMinutes).Subtract(System.DateTime.UtcNow).TotalMinutes;
-			if (minutesUntilUpdate < 0) {
+			/*if (minutesUntilUpdate < 0) {
 				DownloadVersionInfo();
-			}
+			}*/
 
 			return updateCheckDownload != null || minutesUntilUpdate < 10;
 		}
