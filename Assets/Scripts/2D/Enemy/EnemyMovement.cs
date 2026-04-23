@@ -5,7 +5,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -13,16 +13,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] private float stoppingDistance = 1f;
     [SerializeField] Animator animator;
+    Rigidbody2D rb;
     private float distanceToTarget;
     private AIPath path;
     private Vector2 direction;
+    bool test = false;
 
     private Vector2 movement;
     private bool isMoving;
+    private Vector2 knockbackVelocity;
+    private float knockbackDuration = 0.2f;
 
     void Start()
     {
         path = GetComponent<AIPath>();
+        rb = GetComponent<Rigidbody2D>();
+    
     }
 
     // Update is called once per frame
@@ -44,11 +50,31 @@ public class Enemy : MonoBehaviour
 
         direction = (target.position - transform.position).normalized;
 
-
         Vector2 vel = path.velocity;
         animationSistem(vel);
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Aplicar knockback desactivando AIPath temporalmente
+            knockbackVelocity = Vector2.left * 10f; // Fuerza del knockback
+            path.enabled = false; // Desactivar AIPath durante el knockback
+            Invoke(nameof(ReenablePath), knockbackDuration);
+        }
+    }
 
+    void FixedUpdate()
+    {
+        // Aplicar knockback si está activo
+        if (knockbackVelocity != Vector2.zero)
+        {
+            rb.velocity = knockbackVelocity;
+        }
+    }
+
+    void ReenablePath()
+    {
+        path.enabled = true;
+        knockbackVelocity = Vector2.zero;
     }
 
 

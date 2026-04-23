@@ -12,7 +12,7 @@ public class movimiento : MonoBehaviour
     private Vector2 input;
     public Vector2 lastinput;
 
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     private bool isMoving;
 
     void Awake()
