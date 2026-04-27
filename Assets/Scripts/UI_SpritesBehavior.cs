@@ -10,6 +10,7 @@ public class UI_SpritesBehavior : MonoBehaviour
     [SerializeField] Sprite LockedDoorSprite;
     [SerializeField] Sprite CodeDoorSprite;
     [SerializeField] Sprite PickUpSprite;
+    [SerializeField] Sprite VhsPlayerPlayer;
     DoorController lockedDoorScript;
     Image crosshairImage; 
 
