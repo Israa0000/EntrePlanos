@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class CodeDoorBehavior : MonoBehaviour
 {
-    [Tooltip("Posición absoluta para puerta abierta (X/Z usados). Y se sustituye por la Y inicial de la puerta.")]
+    [Tooltip("Posiciï¿½n absoluta para puerta abierta (X/Z usados). Y se sustituye por la Y inicial de la puerta.")]
     [SerializeField] Vector3 absoluteOpenPosition = new Vector3(-18.715f, 0f, 2.644f);
 
-    [Tooltip("Posición absoluta para puerta cerrada (X/Z usados). Y se sustituye por la Y inicial de la puerta.")]
+    [Tooltip("Posiciï¿½n absoluta para puerta cerrada (X/Z usados). Y se sustituye por la Y inicial de la puerta.")]
     [SerializeField] Vector3 absoluteClosedPosition = new Vector3(-18.06f, 0f, 1.834f);
 
-    [Tooltip("Si true, interpola también la rotación (añade openAngle a la rotación inicial en Y).")]
+    [Tooltip("Si true, interpola tambiï¿½n la rotaciï¿½n (aï¿½ade openAngle a la rotaciï¿½n inicial en Y).")]
     [SerializeField] bool lerpRotation = true;
     [SerializeField] float openAngle = 90f;
 
     [SerializeField] float doorSpeed = 2f;
 
 
-    [Tooltip("El Keypad Aquí")]
+    [Tooltip("El Keypad Aquï¿½")]
     [SerializeField] GameObject KeyPad;
     [SerializeField] FirstPersonController fpc;
     KeyPad keypad;
@@ -104,11 +104,11 @@ public class CodeDoorBehavior : MonoBehaviour
     }
 
     private void CloseKeyPad() {
-
+     
          KeyPad.SetActive(false);
          Cursor.lockState = CursorLockMode.Locked;
          fpc.EnableControls(true);
-        keypad.openTheDoor = false;        
+         keypad.openTheDoor = false;        
     }
 
     private void CheckOpenDoor() {

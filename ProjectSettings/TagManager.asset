@@ -11,6 +11,11 @@ TagManager:
   - LockedDoor
   - Key
   - CodeDoor
+  - Gear 1
+  - Gear 2
+  - Gear 3
+  - Gear 4
+  - Gear Panel
   layers:
   - Default
   - TransparentFX

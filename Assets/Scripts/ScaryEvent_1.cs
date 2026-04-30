@@ -12,7 +12,6 @@ public class ScaryEvent_1 : MonoBehaviour
     [SerializeField] AudioClip fastCloseSound;
     [SerializeField] AudioClip bulbBreakSound;
     [SerializeField] AudioClip runingSound;
-    [SerializeField] AudioClip cryingSound;
     [SerializeField] Vector3 lampFinalPosition;
     [SerializeField] Quaternion lampFinalRotation;
 
@@ -64,13 +63,6 @@ public class ScaryEvent_1 : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         // Reproducir el sonido de cryingSound durante 5 segundos
-        if (cryingSound != null)
-        {
-            audioSource.clip = cryingSound;
-            audioSource.loop = false; // No repetir el sonido
-            audioSource.Play();
-            yield return new WaitForSeconds(5f); // Esperar 5 segundos
-        }
 
         // Reproducir el sonido de runingSound durante 5 segundos
         if (runingSound != null)
