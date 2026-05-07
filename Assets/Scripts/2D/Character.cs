@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
+    [SerializeField] RoomChanguer roomChanguer;
     public int damage;
     protected Animator animator;
     protected bool isKnockedBack;
@@ -28,7 +29,6 @@ public abstract class Character : MonoBehaviour
         else
         {
             animator.SetTrigger("Hit");
-            print("daño");
         }
     }
 
@@ -56,8 +56,11 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void Die() 
     {
-
-        Destroy(gameObject);
+        animator.SetTrigger("dead");
+        roomChanguer.NotifyEnemyDied();
+        Destroy(gameObject, 0.3f);
+        roomChanguer.NotifyEnemyDied(); // Notificar al RoomChanger que el enemigo ha muerto
     }
+
 
 }

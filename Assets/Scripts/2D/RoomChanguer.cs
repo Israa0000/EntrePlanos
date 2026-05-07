@@ -12,6 +12,9 @@ public class RoomChanguer : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPoint;
     [SerializeField] int cameraDistance = 20;
+    [SerializeField] List<GameObject> enemies;
+    [SerializeField] bool toOut = false;
+    [SerializeField] GameObject enemy;
     GameObject camera;
     CameraPosChanguer cameraPosChanguer;
     
@@ -32,6 +35,15 @@ public class RoomChanguer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
+
+        if(toOut == true && enemy != null)
+        {
+            enemy.SetActive(true);
+        }
+        if(toOut == false && enemy != null)
+        {
+            enemy.SetActive(false);
+        }
 
         switch (direction)
         {
@@ -56,4 +68,10 @@ public class RoomChanguer : MonoBehaviour
                 break;
         }
     }
+
+    public void NotifyEnemyDied()
+    {
+        enemy = null; 
+    }
+
 }
