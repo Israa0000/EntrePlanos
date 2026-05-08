@@ -16,6 +16,7 @@ TagManager:
   - Gear 3
   - Gear 4
   - Gear Panel
+  - Pickable
   layers:
   - Default
   - TransparentFX

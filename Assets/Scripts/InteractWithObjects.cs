@@ -26,7 +26,12 @@ public class InteractWithObjects : MonoBehaviour
 
     private void Update()
     {
-        
+        if (CodeCanvas != null && CodeCanvas.enabled && Input.GetKeyDown(KeyCode.F))
+        {
+            ReactivatePlayerControls();
+            Keypad.SetActive(false);
+        }
+
         if (interactionWithDoor && Input.GetMouseButtonDown(0))
         {
             CodeDoorBehavior codeDoor = Door.GetComponent<CodeDoorBehavior>();
@@ -85,7 +90,6 @@ public class InteractWithObjects : MonoBehaviour
             if (CodeCanvas != null) CodeCanvas.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
             firstPersonController.EnableControls(false);
         }
     }
