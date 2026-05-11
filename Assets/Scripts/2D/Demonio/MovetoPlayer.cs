@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovetoPlayer : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class MovetoPlayer : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
         print("Player hit");
+            SceneManager.LoadScene(4);
         }
     }
 
