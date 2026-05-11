@@ -57,17 +57,13 @@ public class Gear : MonoBehaviour, IPickable
     {
         if (!isPicked) return;
 
-        Transform holdParent = transform.parent;
         transform.SetParent(null);
-
-        Vector3 forward = holdParent != null ? holdParent.forward : Camera.main.transform.forward;
-        transform.position = (holdParent != null ? holdParent.position : transform.position)
-            + forward.normalized * dropDistance;
 
         if (rb != null)
         {
             rb.isKinematic = false;
             rb.velocity = Vector3.zero;
+            rb.useGravity = true;
         }
 
         if (col != null) col.enabled = true;
@@ -82,6 +78,7 @@ public class Gear : MonoBehaviour, IPickable
         currentPicker = null;
         if (rb != null) rb.isKinematic = true;
         if (col != null) col.enabled = false;
+        enabled = false; // Desactiva el Update de este script
     }
 
     private void OnTriggerEnter(Collider other)
