@@ -10,6 +10,7 @@ public class PuzleActivator : MonoBehaviour
     Sprite buttonUnpressed;
     [SerializeField] bool isBlue;
     [SerializeField] GameObject puzleManagerGO;
+    [SerializeField] MovetoPlayer demonScript;
 
     private PuzleManager puzleManager;
     private LampManager blueLampManager;
@@ -40,6 +41,7 @@ public class PuzleActivator : MonoBehaviour
                 puzleManager.setRedIsPressed(true);
                 redLampManager.LightOn();
             }
+            demonScript.shouldMove = true;
             print("activado");
             
         }
