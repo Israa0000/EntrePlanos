@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RedPill : MonoBehaviour
 {
-    [SerializeField] CameraSwitcher cameraSwitcher;
     GameObject pill;
     [SerializeField] Transform nextPlayerPlace;
     [SerializeField] GameObject player;
@@ -17,10 +18,6 @@ public class RedPill : MonoBehaviour
     {
         pill = this.gameObject;
 
-        if (cameraSwitcher == null)
-        {
-            Debug.LogError("RedPill: 'cameraSwitcher' no está asignado en el Inspector.", this);
-        }
     }
 
     void Update()
@@ -51,6 +48,8 @@ public class RedPill : MonoBehaviour
 
     void takePill()
     {
+
+        SceneManager.LoadScene("2DStage1");
         if (taken) return;
         taken = true;
 
@@ -70,32 +69,29 @@ public class RedPill : MonoBehaviour
             return;
         }
 
-        // Mover primero: usa Rigidbody 3D si existe (tienes Rigidbody 3D)
         Vector3 targetPos = nextPlayerPlace.position;
-        var rb3d = targetPlayer.GetComponent<Rigidbody>();
-        if (rb3d != null)
-        {
-            // Si el controlador 3D estaba deshabilitado, activarlo antes de mover para asegurar coherencia
-            var fps = targetPlayer.GetComponent<MonoBehaviour>();
-            rb3d.position = targetPos;
-            rb3d.velocity = Vector3.zero;
-        }
-        else
-        {
-            targetPlayer.transform.position = targetPos;
-        }
 
-        // Ahora alternamos cámaras y controles.
-        // Importante: si CameraSwitcher gestiona controladores, llamar a ToggleControls o ForceMovement
-        if (cameraSwitcher != null)
+        // MOVER: si tiene CharacterController, deshabilítalo temporalmente y usa transform
+        var cc = targetPlayer.GetComponent<CharacterController>();
+        if (cc != null)
         {
-            // Si quieres forzar modo 2D: cameraSwitcher.ForceMovement(MovementType.Movement2D);
-            cameraSwitcher.ToggleCameras();
-            cameraSwitcher.ToggleControls();
+            cc.enabled = false;
+            targetPlayer.transform.position = targetPos;
+            cc.enabled = true;
         }
         else
         {
-            Debug.LogWarning("RedPill: cameraSwitcher null.", this);
+            // Si no tiene CharacterController, intenta Rigidbody3D, si no, fallback a transform
+            var rb3d = targetPlayer.GetComponent<Rigidbody>();
+            if (rb3d != null)
+            {
+                rb3d.position = targetPos;
+                rb3d.velocity = Vector3.zero;
+            }
+            else
+            {
+                targetPlayer.transform.position = targetPos;
+            }
         }
 
         Destroy(pill);
