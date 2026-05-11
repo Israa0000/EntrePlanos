@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1678295109}
-  speed: 15
+  speed: 20
   shouldMove: 0
 --- !u!212 &539650424
 SpriteRenderer:
@@ -2797,8 +2797,8 @@ Tilemap:
   - first: {x: -1, y: -15, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 65
-      m_TileSpriteIndex: 55
+      m_TileIndex: 69
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 23
       m_TileObjectToInstantiateIndex: 65535
@@ -4786,7 +4786,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 27
+  - m_RefCount: 26
     m_Data: {fileID: 11400000, guid: bc60d08ce5871964c83e71ab450e34ea, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 93190ddc9b6b64c4e85d8c347d431a05, type: 2}
@@ -4794,8 +4794,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8cec5894f943891439f6b11536d4e5f7, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 437bd6e45fa1dcf42a4828f6b9500d6b, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: e5008bf8cb0fefb46a01ace0cd306e91, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 800c5deb70bef4d418d4f547086f31c2, type: 2}
   - m_RefCount: 3
@@ -4817,8 +4817,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -364041433, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 327086135, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1831809581, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
@@ -4915,7 +4915,7 @@ Tilemap:
     m_Data: {fileID: 113486426, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1065399514, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
-  - m_RefCount: 27
+  - m_RefCount: 26
     m_Data: {fileID: 200808554, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 140405229, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
