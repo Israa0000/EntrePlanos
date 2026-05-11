@@ -35,13 +35,13 @@ public class PuzleActivator : MonoBehaviour
                 spriteRenderer.sprite = buttonPressedBlue;
                 puzleManager.setBlueIsPressed(true);
                 blueLampManager.LightOn();
-                demonScript.shouldMove = true;
             }
             else {
                 spriteRenderer.sprite = buttonPressedRed;
                 puzleManager.setRedIsPressed(true);
                 redLampManager.LightOn();
             }
+            demonScript.shouldMove = true;
             print("activado");
             
         }

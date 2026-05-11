@@ -10,6 +10,8 @@ public class Enemy : Character
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] private float stoppingDistance = 1f;
     [SerializeField] float knockbackForce = 5f;
+    [SerializeField] int stage;
+    [SerializeField] GameObject deadBody;
     private bool isMoving;
     private Vector2 playerDir;
     private float lastDamageTakenTime;
@@ -31,6 +33,7 @@ public class Enemy : Character
     protected override void Update()
     {
        movement();
+       
     }
     void FixedUpdate()
     {
@@ -55,16 +58,16 @@ public class Enemy : Character
         animator.SetTrigger("Attack");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)   //se aplica el knockback cuando el enemigo es golpeado
     {
         if (collision.CompareTag("PlayerAttack") && Time.time >= lastDamageTakenTime + damageCooldown)
         {
-            Player player = collision.GetComponentInParent<Player>();
+            Player player = collision.GetComponentInParent<Player>();      
 
             if (player != null)
             {
-                TakeDamage(player.damage);
-                KnockBack();
+                TakeDamage(player.damage);           
+                KnockBack();                
                 lastDamageTakenTime = Time.time;
                 print("ay");
             }
@@ -109,5 +112,13 @@ public class Enemy : Character
         Invoke(nameof(ReenablePath), knockbackDuration); //reactiva el AIPath después de la duración del knockback
     }
 
+    protected override void Die() 
+    {
+        if(stage == 2)
+        {
+            deadBody.transform.position = transform.position;          
+        }
+        base.Die();
+    }
     
 }
