@@ -9,9 +9,14 @@ public class PuzleManager : MonoBehaviour
     public  bool redIsPressed;
     [SerializeField] public GameObject blueLight;
     [SerializeField] public GameObject redLight;
+    [SerializeField] GameObject dorSprite;
+    [SerializeField] GameObject roomchanguer;
+    SpriteRenderer dorSr;
+    Color openDor = new Color(1f, 1f, 1f, 1f); // quita transparencia
+
     void Start()
     {
-        
+        dorSr = dorSprite.GetComponent<SpriteRenderer>();     
     }
 
     // Update is called once per frame
@@ -37,6 +42,8 @@ public class PuzleManager : MonoBehaviour
         if(blueIsPressed == true && redIsPressed == true)
         {
             print("PUZZLE COMPLETED");
+            dorSr.color = openDor;
+            roomchanguer.SetActive(true);
         }
     }
 }
