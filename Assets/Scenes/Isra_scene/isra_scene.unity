@@ -7240,6 +7240,7 @@ GameObject:
   - component: {fileID: 293680929}
   - component: {fileID: 293680928}
   - component: {fileID: 293680927}
+  - component: {fileID: 293680935}
   m_Layer: 6
   m_Name: Player_First_Person
   m_TagString: Player
@@ -7501,6 +7502,14 @@ Transform:
   - {fileID: 509908984}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -136.2, z: 0}
+--- !u!81 &293680935
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293680926}
+  m_Enabled: 1
 --- !u!1001 &312379792
 PrefabInstance:
   m_ObjectHideFlags: 0
