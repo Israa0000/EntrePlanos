@@ -46,7 +46,7 @@ public class CodeDoorBehavior : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             CloseKeyPad();
 

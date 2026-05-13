@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6565915028087262792
+--- !u!114 &-3010962952548820514
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4450AB74:
-        m_Texture: {fileID: 2800000, guid: dd6d5f0b608654944b4fbba45eac8e0e, type: 3}
+        m_Texture: {fileID: 2800000, guid: dbb85f711baa62c46958a148c0ed2822, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -100,7 +100,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_193028D2: 1
-    - Boolean_3F1A8DAB: 1
+    - Boolean_3F1A8DAB: 0
     - Boolean_43476D73: 1
     - Boolean_7165A49C: 1
     - Boolean_85059BBE: 1
@@ -109,7 +109,7 @@ Material:
     - DeformMagnitude: 0
     - Vector1_21C41D02: 256
     - Vector1_6F288C5B: 0.5
-    - Vector1_B2CC132F: 31.7
+    - Vector1_B2CC132F: 39.3
     - Vector1_B9994903: 11
     - Vector1_E8746023: 16
     - _AddPrecomputedVelocity: 0
