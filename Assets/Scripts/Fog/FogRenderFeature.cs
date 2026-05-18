@@ -81,12 +81,12 @@ namespace PSX
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
-    
-        public void Setup(in RenderTargetIdentifier currentTarget)
+
+        public void Setup(in RTHandle currentTarget)
         {
             this.currentTarget = currentTarget;
         }
-    
+
         void Render(CommandBuffer cmd, ref RenderingData renderingData)
         {
             ref var cameraData = ref renderingData.cameraData;
