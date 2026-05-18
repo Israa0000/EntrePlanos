@@ -3,43 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuSystem : MonoBehaviour
 {
-    const string DefaultSceneName = "MainScene";
+    [SerializeField] private string defaultSceneName = "2DStage1";
 
-    public VHSTransition vhsTransition;
+    [SerializeField] private VHSTransition vhsTransition;
 
     public void Continue()
     {
-        string sceneToLoad = DefaultSceneName;
+        string sceneToLoad = defaultSceneName;
 
-        if (SaveSystem.HasSave())
+        Debug.Log($"MenuSystem: Cargando escena '{sceneToLoad}' (save system desactivado).");
+
+        if (vhsTransition != null)
         {
-            string savedScene = SaveSystem.GetSavedScene();
-            if (!string.IsNullOrEmpty(savedScene))
-            {
-                sceneToLoad = savedScene;
-            }
-        }
-
-        Debug.Log($"MenuSystem: Cargando escena '{sceneToLoad}' con transición VHS");
-        vhsTransition.PlayTransition(sceneToLoad);
-
-        SceneManager.sceneLoaded += OnSceneLoaded_SetPlayer;
-    }
-
-    private void OnSceneLoaded_SetPlayer(Scene scene, LoadSceneMode mode)
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded_SetPlayer;
-
-        Vector3 savedPos = SaveSystem.GetSavedPlayerPosition();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            player.transform.position = savedPos;
-            Debug.Log($"MenuSystem: Jugador reposicionado en {savedPos} en escena '{scene.name}'.");
+            vhsTransition.PlayTransition(sceneToLoad);
         }
         else
         {
-            Debug.LogWarning("MenuSystem: No se encontró GameObject con tag 'Player'.");
+            Debug.LogWarning("MenuSystem: vhsTransition es null — cargando escena directamente.");
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 

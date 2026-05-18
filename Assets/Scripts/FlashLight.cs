@@ -20,16 +20,11 @@ public class FlashLight : MonoBehaviour
         {
             Collect();
         }
-
-        if (isCollected && Input.GetKeyDown(KeyCode.F))
-        {
-            flashlightLight.enabled = !flashlightLight.enabled;
-        }
     }
 
     void Collect()
     {
-        FlashlightController controller = FindObjectOfType<FlashlightController>();
+        FlashlightController controller = Object.FindAnyObjectByType<FlashlightController>();
         if (controller != null) controller.Collect();
         gameObject.SetActive(false);
     }
