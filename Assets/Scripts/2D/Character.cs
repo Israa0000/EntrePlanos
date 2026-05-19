@@ -11,7 +11,7 @@ public abstract class Character : MonoBehaviour
     public int damage;
     protected Animator animator;
     protected bool isKnockedBack;
-    protected float knockbackDuration = 0.5f;
+    [SerializeField] protected float knockbackDuration = 0.2f;
 
 
     protected virtual void Update() //protected para que solo se pueda llamar desde clases hijas, virtual para que cada personaje pueda implementar su propio sistema de movimiento
@@ -57,9 +57,8 @@ public abstract class Character : MonoBehaviour
     protected virtual void Die() 
     {
         animator.SetTrigger("dead");
-        roomChanguer.NotifyEnemyDied();
+        roomChanguer.NotifyEnemyDied(gameObject);
         Destroy(gameObject, 0.3f);
-        roomChanguer.NotifyEnemyDied(); // Notificar al RoomChanger que el enemigo ha muerto
     }
 
 
