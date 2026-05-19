@@ -8,6 +8,8 @@ public class MovetoPlayer : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject player;
     [SerializeField] float speed;
+    [SerializeField] int scene;
+    [SerializeField] AudioClip demonSound;
     public bool shouldMove = false;
     void Start()
     {
@@ -20,6 +22,7 @@ public class MovetoPlayer : MonoBehaviour
         if(shouldMove)
         {
             MoveToPlayer();
+             AudioController.Instance.PlaySound(demonSound);
         }
     }
 
@@ -33,7 +36,7 @@ public class MovetoPlayer : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
         print("Player hit");
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(scene);
         }
     }
 

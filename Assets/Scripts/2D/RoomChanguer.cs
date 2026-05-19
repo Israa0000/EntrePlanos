@@ -1,77 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 using UnityEngine;
 
 public class RoomChanguer : MonoBehaviour
-
 {
-    // Start is called before the first frame update
-
     public enum Direction { Up, Down, Left, Right }
     public Direction direction;
+
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPoint;
     [SerializeField] int cameraDistance = 20;
-    [SerializeField] List<GameObject> enemies;
+
+    [SerializeField] List<GameObject> enemies;   // Lista de enemigos
     [SerializeField] bool toOut = false;
-    [SerializeField] GameObject enemy;
-    GameObject camera;
+    [SerializeField] bool activateDemon;
+    GameObject cameraa;
     CameraPosChanguer cameraPosChanguer;
-    
+    [SerializeField] MovetoPlayer moveToPlayer;
 
     void Start()
     {
-        camera = GameObject.Find("Main Camera");
-        cameraPosChanguer = camera.GetComponent<CameraPosChanguer>();
+        cameraa = GameObject.Find("Main Camera");
+        cameraPosChanguer = cameraa.GetComponent<CameraPosChanguer>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
 
-        if(toOut == true && enemy != null)
+        // ACTIVAR / DESACTIVAR TODOS LOS ENEMIGOS
+        foreach (GameObject enemy in enemies)
         {
-            enemy.SetActive(true);
+            if (enemy != null)
+                enemy.SetActive(toOut);
         }
-        if(toOut == false && enemy != null)
-        {
-            enemy.SetActive(false);
-        }
+
+        // MOVER JUGADOR Y CÁMARA
+        player.transform.position = spawnPoint.position;
 
         switch (direction)
         {
             case Direction.Up:
-                player.transform.position = spawnPoint.transform.position;
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x, camera.transform.position.y + cameraDistance, camera.transform.position.z));
+                cameraPosChanguer.ChangeCameraPos(
+                    new Vector3(cameraa.transform.position.x, cameraa.transform.position.y + cameraDistance, cameraa.transform.position.z));
                 break;
 
             case Direction.Down:
-                player.transform.position = spawnPoint.transform.position;
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x, camera.transform.position.y - cameraDistance, camera.transform.position.z));
+                cameraPosChanguer.ChangeCameraPos(
+                    new Vector3(cameraa.transform.position.x, cameraa.transform.position.y - cameraDistance, cameraa.transform.position.z));
                 break;
 
             case Direction.Left:
-                player.transform.position = spawnPoint.transform.position;
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x - cameraDistance, camera.transform.position.y, camera.transform.position.z));
+                cameraPosChanguer.ChangeCameraPos(
+                    new Vector3(cameraa.transform.position.x - cameraDistance, cameraa.transform.position.y, cameraa.transform.position.z));
                 break;
 
             case Direction.Right:
-                player.transform.position = spawnPoint.transform.position;
-                cameraPosChanguer.ChangeCameraPos(new Vector3(camera.transform.position.x + cameraDistance, camera.transform.position.y, camera.transform.position.z));
+                cameraPosChanguer.ChangeCameraPos(
+                    new Vector3(cameraa.transform.position.x + cameraDistance, cameraa.transform.position.y, cameraa.transform.position.z));
                 break;
+        }
+
+        if(activateDemon == true)
+        {
+            if(moveToPlayer != null)
+            {
+                moveToPlayer.shouldMove = true;
+            }
         }
     }
 
-    public void NotifyEnemyDied()
+    // LLAMADO POR CADA ENEMIGO AL MORIR
+    public void NotifyEnemyDied(GameObject enemy)
     {
-        enemy = null; 
+        if (enemies.Contains(enemy))
+        {
+            enemies.Remove(enemy);
+        }
     }
-
 }

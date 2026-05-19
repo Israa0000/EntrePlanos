@@ -12,6 +12,7 @@ public class Enemy : Character
     [SerializeField] float knockbackForce = 5f;
     [SerializeField] int stage;
     [SerializeField] GameObject deadBody;
+    [SerializeField] AudioClip getDamage1;
     private bool isMoving;
     private Vector2 playerDir;
     private float lastDamageTakenTime;
@@ -19,7 +20,7 @@ public class Enemy : Character
     private float distanceToTarget;
     private AIPath path;
     private Vector2 knockbackVelocity;
-    [SerializeField] private float knockbackDuration = 0.2f;
+    //[SerializeField] private float knockbackDuration = 0.2f;
     Rigidbody2D rb;
 
     void Start()
@@ -70,6 +71,7 @@ public class Enemy : Character
                 KnockBack();                
                 lastDamageTakenTime = Time.time;
                 print("ay");
+                AudioController.Instance.PlaySound(getDamage1);
             }
         }
     }
