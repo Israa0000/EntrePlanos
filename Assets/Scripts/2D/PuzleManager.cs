@@ -16,7 +16,11 @@ public class PuzleManager : MonoBehaviour
 
     void Start()
     {
-        dorSr = dorSprite.GetComponent<SpriteRenderer>();     
+        if(dorSprite != null)
+        {
+           dorSr = dorSprite.GetComponent<SpriteRenderer>();    
+        }
+           
     }
 
     // Update is called once per frame
@@ -42,7 +46,10 @@ public class PuzleManager : MonoBehaviour
         if(blueIsPressed == true && redIsPressed == true)
         {
             print("PUZZLE COMPLETED");
-            dorSr.color = openDor;
+            if(dorSprite != null)
+            {                
+                dorSr.color = openDor;
+            }
             roomchanguer.SetActive(true);
         }
     }

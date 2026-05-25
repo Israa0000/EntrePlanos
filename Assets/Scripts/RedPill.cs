@@ -54,7 +54,7 @@ public class RedPill : MonoBehaviour
 
         Debug.Log("Pill taken");
 
-        // Decide qué player mover: referencia serializada o el que entró en trigger
+        // Decide quï¿½ player mover: referencia serializada o el que entrï¿½ en trigger
         GameObject targetPlayer = player != null ? player : currentPlayerInRange;
         if (targetPlayer == null)
         {
@@ -70,7 +70,7 @@ public class RedPill : MonoBehaviour
 
         Vector3 targetPos = nextPlayerPlace.position;
 
-        // MOVER: si tiene CharacterController, deshabilítalo temporalmente y usa transform
+        // MOVER: si tiene CharacterController, deshabilï¿½talo temporalmente y usa transform
         var cc = targetPlayer.GetComponent<CharacterController>();
         if (cc != null)
         {

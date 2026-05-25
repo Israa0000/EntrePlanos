@@ -6,6 +6,8 @@ public class movimiento : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public GameObject cameraSwitcher;
     [SerializeField] private Animator animator;
+    [SerializeField]private AudioClip walck;
+    [SerializeField] private AudioClip atack;
 
     private CameraSwitcher cameraSwitcherScript;
 
@@ -27,7 +29,7 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
-        // 🔒 Si está atacando, bloqueamos input
+        
         if (isAttacking)
         {
             input = Vector2.zero;
@@ -48,13 +50,13 @@ public class movimiento : MonoBehaviour
         // Normalizar para evitar velocidad extra en diagonal
         input = input.normalized;
 
-        // 🎯 Guardamos dirección solo si se mueve
+        // Guardamos dirección solo si se mueve
         if (input != Vector2.zero)
         {
             lastinput = input;
         }
 
-        // ⚔️ Ataque
+        //  Ataque
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
             isAttacking = true;
@@ -64,6 +66,7 @@ public class movimiento : MonoBehaviour
                 lastinput = input;
 
             animator.SetTrigger("Attack");
+            AudioController.Instance.PlaySound(atack);
         }
 
         animationSistem();
@@ -90,6 +93,7 @@ public class movimiento : MonoBehaviour
             animator.SetFloat("XMovement", input.x);
             animator.SetFloat("YMovement", input.y);
             isMoving = true;
+           
         }
         else
         {
@@ -107,4 +111,10 @@ public class movimiento : MonoBehaviour
     {
         isAttacking = false;
     }
+
+    public void PlayWalkSound()
+    {
+        AudioController.Instance.PlaySound(walck);
+    }
+    
 }

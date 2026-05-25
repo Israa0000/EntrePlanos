@@ -441,6 +441,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1678295109}
   speed: 15
+  scene: 0
+  demonSound: {fileID: 8300000, guid: acecf74039441b547a24db0c5fc101b1, type: 3}
+  sceneChanguer: {fileID: 1483389887}
+  salaDestino: SalaA
   shouldMove: 0
 --- !u!212 &539650424
 SpriteRenderer:
@@ -1219,6 +1223,8 @@ MonoBehaviour:
   cameraB: {fileID: 302847126}
   switchKey: 118
   movement: 1
+  controller2D: {fileID: 0}
+  controller3D: {fileID: 0}
 --- !u!4 &1006628871
 Transform:
   m_ObjectHideFlags: 0
@@ -1312,6 +1318,192 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.67, y: 0.9}
   m_EdgeRadius: 0
+--- !u!1 &1430392372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430392374}
+  - component: {fileID: 1430392373}
+  - component: {fileID: 1430392375}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1430392373
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430392372}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.426
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1430392374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430392372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.3866754, y: -1.752923, z: -30.801992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430392375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430392372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57f33e5feba5ad43a1de9409f952f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1483389886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483389888}
+  - component: {fileID: 1483389887}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1483389887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483389886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37e252db63c059498e6f749d0a1d6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1483389888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483389886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -103.627754, y: -10.353398, z: -6.8044534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678295109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1616,8 @@ MonoBehaviour:
   rb: {fileID: 1678295110}
   cameraSwitcher: {fileID: 1006628869}
   animator: {fileID: 1678295113}
+  walck: {fileID: 8300000, guid: 38219a7edee1248419b53867d88659ad, type: 3}
+  atack: {fileID: 8300000, guid: bb9785a9ebe30b743bcaa4402931f6ff, type: 3}
   lastinput: {x: 0, y: 0}
   isAttacking: 0
 --- !u!95 &1678295113
@@ -1552,6 +1746,7 @@ MonoBehaviour:
   currentHealth: 20
   roomChanguer: {fileID: 0}
   damage: 10
+  knockbackDuration: 0.2
 --- !u!1 &1724066398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,13 +2051,14 @@ MonoBehaviour:
   currentHealth: 20
   roomChanguer: {fileID: 7165339322550259119}
   damage: 1
+  knockbackDuration: 0.3
   target: {fileID: 1678295115}
   moveSpeed: 1
-  stoppingDistance: 0.96
+  stoppingDistance: 1.2
   knockbackForce: 6.3
   stage: 1
   deadBody: {fileID: 931336711}
-  knockbackDuration: 0.3
+  getDamage1: {fileID: 8300000, guid: 1bb68fd1fc65ed04b9a5218aa218c3a9, type: 3}
 --- !u!1 &2023801310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,6 +3046,9 @@ MonoBehaviour:
   isBlue: 0
   puzleManagerGO: {fileID: 284345533}
   demonScript: {fileID: 0}
+  demonTime: 0
+  activateBtn: {fileID: 8300000, guid: f7825ec3d6f42d64a8a5cf3787c71b3b, type: 3}
+  screamColider: {fileID: 0}
 --- !u!114 &923998824096928913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,9 +3065,11 @@ MonoBehaviour:
   player: {fileID: 1678295109}
   spawnPoint: {fileID: 6299769629555106732}
   cameraDistance: 19
-  enemies: []
+  enemies:
+  - {fileID: 1959149561}
   toOut: 1
-  enemy: {fileID: 1959149561}
+  activateDemon: 0
+  moveToPlayer: {fileID: 0}
 --- !u!1839735485 &1013660660020428999
 Tilemap:
   m_ObjectHideFlags: 0
@@ -3998,16 +4199,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 27, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 6
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 23
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 29, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -4113,16 +4304,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 9
       m_TileSpriteIndex: 9
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 23
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 27, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 23
       m_TileObjectToInstantiateIndex: 65535
@@ -4632,8 +4813,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 88ecd3f0288be644e89ff30730c15861, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 5d60dc850163ec549aa169b7c6a6db05, type: 2}
   - m_RefCount: 1
@@ -4775,8 +4956,8 @@ Tilemap:
     m_Data: {fileID: 847612483, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: -1952181473, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1547527495, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
@@ -4906,7 +5087,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 547642856, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 174
+  - m_RefCount: 172
     m_Data:
       e00: 1
       e01: 0
@@ -4971,7 +5152,7 @@ Tilemap:
     m_Data: {r: 6.9715e-41, g: 6.9715e-41, b: 6.9715e-41, a: 6.9715e-41}
   - m_RefCount: 0
     m_Data: {r: 6.9715e-41, g: 6.9715e-41, b: 6.9715e-41, a: 6.9715e-41}
-  - m_RefCount: 174
+  - m_RefCount: 172
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5106,16 +5287,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 34
-      m_TileSpriteIndex: 33
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 25
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 11, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -5206,7 +5377,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1820bae9c8eefcb4883a166d9fa882a8, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: d7322015c0e055e44876a1e7dbce3f4c, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: a389cc03c3efcfb4f978720636028abb, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 7c93d993fab8fd74ead0c2641e855628, type: 2}
@@ -5277,14 +5448,14 @@ Tilemap:
     m_Data: {fileID: 279995968, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 626151354, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -543025648, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -1907688719, guid: 40945997249072c46b4632c2f8f8f90a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1787546097, guid: 0cb9f7ea68f671145b66873c67b1883d, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data:
       e00: 1
       e01: 0
@@ -5353,7 +5524,7 @@ Tilemap:
     m_Data: {r: 0.000000004050051, g: 0.000000004050051, b: 0.000000004050051, a: 0.000000004050051}
   - m_RefCount: 0
     m_Data: {r: 0.0000000040500083, g: 0.0000000040500083, b: 0.0000000040500083, a: 0.0000000040500083}
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -11940,9 +12111,11 @@ MonoBehaviour:
   player: {fileID: 1678295109}
   spawnPoint: {fileID: 7596241323155248330}
   cameraDistance: 17
-  enemies: []
+  enemies:
+  - {fileID: 1959149561}
   toOut: 0
-  enemy: {fileID: 1959149561}
+  activateDemon: 0
+  moveToPlayer: {fileID: 0}
 --- !u!4 &3733355930526109396
 Transform:
   m_ObjectHideFlags: 0
@@ -12666,6 +12839,9 @@ MonoBehaviour:
   isBlue: 1
   puzleManagerGO: {fileID: 284345533}
   demonScript: {fileID: 539650423}
+  demonTime: 1
+  activateBtn: {fileID: 8300000, guid: f7825ec3d6f42d64a8a5cf3787c71b3b, type: 3}
+  screamColider: {fileID: 0}
 --- !u!4 &6299769629555106732
 Transform:
   m_ObjectHideFlags: 0
@@ -12852,9 +13028,11 @@ MonoBehaviour:
   player: {fileID: 1678295109}
   spawnPoint: {fileID: 4093654650782169746}
   cameraDistance: 19
-  enemies: []
+  enemies:
+  - {fileID: 539650422}
   toOut: 0
-  enemy: {fileID: 1959149561}
+  activateDemon: 0
+  moveToPlayer: {fileID: 0}
 --- !u!4 &7596241323155248330
 Transform:
   m_ObjectHideFlags: 0
@@ -12915,9 +13093,11 @@ MonoBehaviour:
   player: {fileID: 1678295109}
   spawnPoint: {fileID: 3928026193120989150}
   cameraDistance: 17
-  enemies: []
+  enemies:
+  - {fileID: 1959149561}
   toOut: 1
-  enemy: {fileID: 1959149561}
+  activateDemon: 0
+  moveToPlayer: {fileID: 0}
 --- !u!1 &8051111397941268709
 GameObject:
   m_ObjectHideFlags: 0
@@ -13603,3 +13783,5 @@ SceneRoots:
   - {fileID: 931336713}
   - {fileID: 161465060}
   - {fileID: 792041367}
+  - {fileID: 1430392374}
+  - {fileID: 1483389888}

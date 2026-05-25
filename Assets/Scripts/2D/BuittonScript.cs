@@ -11,7 +11,9 @@ public class PuzleActivator : MonoBehaviour
     [SerializeField] bool isBlue;
     [SerializeField] GameObject puzleManagerGO;
     [SerializeField] MovetoPlayer demonScript;
-
+    [SerializeField] bool demonTime;
+    [SerializeField] AudioClip activateBtn;
+    [SerializeField] GameObject screamColider;
     private PuzleManager puzleManager;
     private LampManager blueLampManager;
     private LampManager redLampManager;
@@ -41,8 +43,16 @@ public class PuzleActivator : MonoBehaviour
                 puzleManager.setRedIsPressed(true);
                 redLampManager.LightOn();
             }
-            demonScript.shouldMove = true;
-            print("activado");
+            if (demonTime)
+            {
+                demonScript.shouldMove = true;
+                print("activado");
+            }
+            if(screamColider != null)
+            {
+                screamColider.SetActive(true);
+            }
+            AudioController.Instance.PlaySound(activateBtn);
             
         }
     }
