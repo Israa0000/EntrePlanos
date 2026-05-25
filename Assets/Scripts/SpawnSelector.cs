@@ -7,7 +7,7 @@ public class SpawnSelector : MonoBehaviour
     [SerializeField] private Transform spawnSalaA;
     [SerializeField] private Transform spawnSalaB;
     [SerializeField] private Transform spawnSalaC;
-
+    [SerializeField] private FlashlightController flashlightController;
     [SerializeField] private GameObject player;
 
     void Start()
@@ -26,6 +26,7 @@ public class SpawnSelector : MonoBehaviour
 
             case "SalaC":
                 player.transform.position = spawnSalaC.position;
+                flashlightController.Collect();
                 break;
         }
     }

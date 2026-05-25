@@ -8562,6 +8562,7 @@ MonoBehaviour:
   spawnSalaA: {fileID: 1938174765}
   spawnSalaB: {fileID: 431757196}
   spawnSalaC: {fileID: 1010853716}
+  flashlightController: {fileID: 293680928}
   player: {fileID: 293680926}
 --- !u!4 &358808876
 Transform:
