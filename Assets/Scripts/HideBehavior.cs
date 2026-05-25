@@ -10,6 +10,7 @@ public class HideBehavior : MonoBehaviour
     [SerializeField] Transform hidePosition;
     [SerializeField] GameObject table;
     [SerializeField] GameObject player;
+    bool insideCollider;
     Vector3 defaultPlayerScale;
     bool isHiding = false;
     void Start()
@@ -21,12 +22,44 @@ public class HideBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ENTRAR A ESCONDERSE
-        if (Input.GetKey(KeyCode.C))
+       
+        // Si está dentro del collider, NO puede levantarse
+        if (insideCollider)
         {
-            player.transform.localScale = hideScale;
+            if (Input.GetKey(KeyCode.C))
+            {
+                player.transform.localScale = hideScale;
+            }
+            // Si suelta C, NO se levanta
         }
-        else { player.transform.localScale = defaultPlayerScale; }
-            
+        else
+        {
+            // Fuera del collider, comportamiento normal
+            if (Input.GetKey(KeyCode.C))
+                player.transform.localScale = hideScale;
+            else
+                player.transform.localScale = defaultPlayerScale;
+        }
+
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("HideTable"))
+        {
+            insideCollider = true;
+            print("hide");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("HideTable"))
+        {
+            insideCollider = false;
+            player.transform.localScale = defaultPlayerScale; // por si sale agachado
+        }
+    }
+
 }
