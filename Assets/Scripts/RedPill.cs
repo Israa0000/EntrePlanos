@@ -22,7 +22,7 @@ public class RedPill : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetMouseButtonDown(0))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             takePill();
         }
