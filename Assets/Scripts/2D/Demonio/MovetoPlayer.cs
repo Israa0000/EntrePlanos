@@ -10,6 +10,8 @@ public class MovetoPlayer : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int scene;
     [SerializeField] AudioClip demonSound;
+    [SerializeField] SceneChanguer sceneChanguer;
+    [SerializeField] string salaDestino;
     public bool shouldMove = false;
     void Start()
     {
@@ -35,10 +37,8 @@ public class MovetoPlayer : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-        print("Player hit");
-            SceneManager.LoadScene(scene);
-        }
+            print("Player hit");
+            sceneChanguer.changuerScene(salaDestino); 
+        }    
     }
-
-    
 }
