@@ -8,6 +8,7 @@ public class RedPill : MonoBehaviour
     GameObject pill;
     [SerializeField] Transform nextPlayerPlace;
     [SerializeField] GameObject player;
+    [SerializeField] string nextSceneName;
 
     bool playerInRange = false;
     GameObject currentPlayerInRange;
@@ -48,7 +49,7 @@ public class RedPill : MonoBehaviour
     void takePill()
     {
 
-        SceneManager.LoadScene("2DStage1");
+        SceneManager.LoadScene(nextSceneName);
         if (taken) return;
         taken = true;
 
