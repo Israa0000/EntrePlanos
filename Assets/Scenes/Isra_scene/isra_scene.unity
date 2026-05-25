@@ -26994,7 +26994,6 @@ GameObject:
   - component: {fileID: 1202840418}
   - component: {fileID: 1202840422}
   - component: {fileID: 1202840421}
-  - component: {fileID: 1202840420}
   - component: {fileID: 1202840419}
   m_Layer: 6
   m_Name: collider de interactuar
@@ -27036,22 +27035,6 @@ MonoBehaviour:
   CodeDoorSprite: {fileID: 21300000, guid: 96c2c436575a6324182b928386e6c609, type: 3}
   PickUpSprite: {fileID: 21300000, guid: 91bf3d3aca61907448528b24b9969cdb, type: 3}
   VhsPlayerPlayer: {fileID: 0}
---- !u!114 &1202840420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202840417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe5dd859f26e134f8a603099a1f1388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideScale: {x: 1, y: 0.1555063, z: 1}
-  hidePosition: {fileID: 0}
-  table: {fileID: 0}
-  player: {fileID: 293680926}
 --- !u!114 &1202840421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27092,8 +27075,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.76065534, z: 0.5}
-  m_Center: {x: 0, y: -0.13032767, z: 0}
+  m_Size: {x: 1.13, y: 0.73, z: 0.69}
+  m_Center: {x: -0.22, y: -0.13032767, z: 0}
 --- !u!1 &1227229484
 GameObject:
   m_ObjectHideFlags: 0
@@ -30227,6 +30210,7 @@ GameObject:
   - component: {fileID: 1674920767}
   - component: {fileID: 1674920766}
   - component: {fileID: 1674920765}
+  - component: {fileID: 1674920768}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -30265,12 +30249,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.8, z: 1}
+  m_Center: {x: -0.43, y: -0.43, z: 0}
 --- !u!23 &1674920766
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30323,6 +30307,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674920763}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1674920768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674920763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe5dd859f26e134f8a603099a1f1388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideScale: {x: 1, y: 0.15, z: 0}
+  hidePosition: {fileID: 0}
+  table: {fileID: 0}
+  player: {fileID: 293680926}
 --- !u!1 &1677931427
 GameObject:
   m_ObjectHideFlags: 0

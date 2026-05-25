@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class FlashlightController : MonoBehaviour
 {
@@ -23,4 +24,6 @@ public class FlashlightController : MonoBehaviour
     {
         isCollected = true;
     }
+
+   
 }
