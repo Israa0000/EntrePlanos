@@ -55,7 +55,7 @@ public class CodeDoorBehavior : MonoBehaviour
 
     public void Toggle()
     {
-        if (!keypad.openTheDoor)
+        if (keypad.openTheDoor)
         {
             CloseKeyPad();
             print("sas");
