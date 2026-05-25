@@ -8,7 +8,7 @@ public class MovetoPlayer : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject player;
     [SerializeField] float speed;
-    [SerializeField] int scene;
+    [SerializeField] string scene;
     [SerializeField] AudioClip demonSound;
     [SerializeField] SceneChanguer sceneChanguer;
     [SerializeField] string salaDestino;
