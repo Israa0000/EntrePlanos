@@ -18,12 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/2DStage2.unity
     guid: 4f985e40447d714419a7499c9a3c0e89
   - enabled: 1
-    path: Assets/Scenes/2DStage3.unity
-    guid: 6f0bea6c5cbee1647bb8047c79826e0d
-  - enabled: 1
     path: Assets/Scenes/Andrew_scene.unity
     guid: a1b5b935b5f361c4daf5754d1fcf1c5e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Isra_scene/isra_scene.unity
     guid: 11878bff2d2940d4cad271463a490432
   m_configObjects: {}

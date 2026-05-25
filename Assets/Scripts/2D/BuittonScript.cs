@@ -13,6 +13,7 @@ public class PuzleActivator : MonoBehaviour
     [SerializeField] MovetoPlayer demonScript;
     [SerializeField] bool demonTime;
     [SerializeField] AudioClip activateBtn;
+    [SerializeField] GameObject screamColider;
     private PuzleManager puzleManager;
     private LampManager blueLampManager;
     private LampManager redLampManager;
@@ -46,6 +47,10 @@ public class PuzleActivator : MonoBehaviour
             {
                 demonScript.shouldMove = true;
                 print("activado");
+            }
+            if(screamColider != null)
+            {
+                screamColider.SetActive(true);
             }
             AudioController.Instance.PlaySound(activateBtn);
             
