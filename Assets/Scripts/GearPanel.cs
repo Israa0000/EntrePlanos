@@ -10,9 +10,10 @@ public class GearPanel : MonoBehaviour
         public Transform snapPosition;       // Posición donde se coloca visualmente el engranaje
         public float rotationSpeed = 90f;    // Velocidad de giro cuando está colocado
         [HideInInspector] public bool isPlaced = false;
-        [HideInInspector] public GameObject placedGear = null;
+        [HideInInspector] public GameObject placedGear = null; 
     }
-
+    [SerializeField] GameObject soga;
+    Vector3 sogaPosition = new Vector3(-80.0559998f, 1.57599998f, 1.12699997f);
     [SerializeField] string playerTag = "Player";
     [SerializeField] List<GearSlot> slots;
 
@@ -97,6 +98,7 @@ public class GearPanel : MonoBehaviour
     void OnPuzzleComplete()
     {
         Debug.Log("¡Puzle completado! Todos los engranajes están en su sitio.");
+        soga.transform.position = sogaPosition;
         // Aquí puedes añadir lo que pase al completar el puzle
     }
 
