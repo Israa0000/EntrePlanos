@@ -9,6 +9,6 @@ public class SceneChanguer : MonoBehaviour
     public void changuerScene(string salaDestino)
     {
         PlayerPrefs.SetString("Sala3D", salaDestino);
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("isra_scene");
     }
 }
