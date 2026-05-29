@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Isra_scene/isra_scene.unity
     guid: 11878bff2d2940d4cad271463a490432
+  - enabled: 1
+    path: Assets/Scenes/Psx_Unlit_Variant.unity
+    guid: 6a2417e6fe3129e42bb62641526eeff1
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
