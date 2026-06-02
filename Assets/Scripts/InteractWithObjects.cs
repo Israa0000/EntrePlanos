@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractWithObjects : MonoBehaviour
 {
@@ -73,8 +74,9 @@ public class InteractWithObjects : MonoBehaviour
                         pickable.OnPickUp(gameObject);
                         Debug.Log("IPICKABLE EN INVENTARIO");
                     }
-                }else print("No hit");
-            }   
+                }
+                else print("No hit");
+            }
             catch (System.Exception e)
             {
                 Debug.LogException(e);
@@ -85,13 +87,40 @@ public class InteractWithObjects : MonoBehaviour
 
     private void HandleCodeDoor(CodeDoorBehavior codeDoor)
     {
-        if (keyPadScript != null && keyPadScript.openTheDoor == false)
+        Debug.Log("=== HandleCodeDoor START ===");
+
+        if (CodeCanvas != null)
         {
-            if (CodeCanvas != null) CodeCanvas.enabled = true;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            firstPersonController.EnableControls(false);
+            CodeCanvas.enabled = true;
         }
+
+        Keypad.SetActive(true);
+
+        // 🔍 Fuerza posición y escala
+        RectTransform keypadRect = Keypad.GetComponent<RectTransform>();
+        if (keypadRect != null)
+        {
+            keypadRect.anchoredPosition = Vector2.zero;
+            keypadRect.localScale = Vector3.one;
+            Debug.Log("Keypad RectTransform reseteado");
+        }
+
+        // 🔍 Asegúrate de que todos los hijos están activos
+        foreach (Transform child in Keypad.GetComponentsInChildren<Transform>())
+        {
+            if (!child.gameObject.activeSelf)
+            {
+                child.gameObject.SetActive(true);
+                Debug.Log("Activado: " + child.name);
+            }
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        firstPersonController.EnableControls(false);
+        Crosshair.SetActive(false);
+
+        Debug.Log("=== HandleCodeDoor END ===");
     }
 
     private void HandleLockedDoor(DoorController lockedDoor)
