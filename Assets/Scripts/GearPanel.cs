@@ -99,7 +99,13 @@ public class GearPanel : MonoBehaviour
     {
         Debug.Log("¡Puzle completado! Todos los engranajes están en su sitio.");
         soga.transform.position = sogaPosition;
-        // Aquí puedes añadir lo que pase al completar el puzle
+
+        // Activa el teléfono
+        PhoneInteraction phone = FindAnyObjectByType<PhoneInteraction>();
+        if (phone != null)
+            phone.ActivatePhone();
+        else
+            Debug.LogWarning("No se encontró PhoneInteraction en la escena");
     }
 
     private void OnTriggerEnter(Collider other)
