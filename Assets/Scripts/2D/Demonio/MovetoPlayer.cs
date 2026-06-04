@@ -24,7 +24,7 @@ public class MovetoPlayer : MonoBehaviour
         if(shouldMove)
         {
             MoveToPlayer();
-             AudioController.Instance.PlaySound(demonSound);
+            AudioController.Instance.PlaySound(demonSound);
         }
     }
 

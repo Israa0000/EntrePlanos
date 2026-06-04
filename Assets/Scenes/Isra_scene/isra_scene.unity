@@ -19723,7 +19723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91649c8a3d30bc844aa166374bb93272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPlayerPlace: {fileID: 206130168}
   player: {fileID: 293680926}
   nextSceneName: 2DStage3
 --- !u!54 &763670639
@@ -20536,7 +20535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91649c8a3d30bc844aa166374bb93272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPlayerPlace: {fileID: 206130168}
   player: {fileID: 293680926}
   nextSceneName: 2DStage2
 --- !u!199 &789121686
@@ -43129,7 +43127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91649c8a3d30bc844aa166374bb93272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPlayerPlace: {fileID: 206130168}
   player: {fileID: 293680926}
   nextSceneName: Psx_Unlit_Variant
 --- !u!54 &1848094744
@@ -45138,8 +45135,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.51, y: 23.12, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5513409, y: 29.870699, z: 1.0000002}
+  m_Center: {x: 0.020670474, y: 3.1899998, z: -9.134276e-17}
 --- !u!65 &1918005607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45159,8 +45156,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.348938, y: 11.022782, z: 1}
+  m_Center: {x: -0.019889832, y: 5.0113907, z: 8.7074775e-16}
 --- !u!114 &1918005608
 MonoBehaviour:
   m_ObjectHideFlags: 0
