@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RespawnAfterEnemy : MonoBehaviour
 {
@@ -12,13 +11,15 @@ public class RespawnAfterEnemy : MonoBehaviour
     [SerializeField] GameObject screamerImage;
     [SerializeField] AudioClip screamerSound;
     [SerializeField] float screamerDuration = 1f;
-    [SerializeField] Canvas screamerCanvas; // ? añade este campo
+    [SerializeField] Canvas screamerCanvas;
 
     private Transform playerTransform;
     private CharacterController cc;
     private Rigidbody rb;
     private AudioSource audioSource;
-    private bool isRespawning = false; // evita triggerearlo dos veces
+
+    // ? Tag único para no duplicar el objeto de audio
+    private const string AUDIO_OBJ_NAME = "ScreamerAudio_Persistent";
 
     private void Awake()
     {
@@ -26,43 +27,49 @@ public class RespawnAfterEnemy : MonoBehaviour
         cc = playerTransform.GetComponent<CharacterController>();
         rb = playerTransform.GetComponent<Rigidbody>();
 
-        // Obtiene el Canvas padre de la imagen
-        if (screamerImage != null)
-        {
-            screamerCanvas = screamerImage.GetComponentInParent<Canvas>();
-            if (screamerCanvas != null)
-            {
-                DontDestroyOnLoad(screamerCanvas.gameObject); // sobrevive cambios de escena
-            }
-        }
+        if (screamerCanvas == null && screamerImage != null)
+            screamerCanvas = screamerImage.transform.parent?.GetComponent<Canvas>();
 
-        GameObject audioObj = new GameObject("ScreamerAudio");
-        DontDestroyOnLoad(audioObj);
-        audioSource = audioObj.AddComponent<AudioSource>();
+        // ? Solo crea el objeto de audio si NO existe ya
+        GameObject audioObj = GameObject.Find(AUDIO_OBJ_NAME);
+        if (audioObj == null)
+        {
+            audioObj = new GameObject(AUDIO_OBJ_NAME);
+            DontDestroyOnLoad(audioObj);
+        }
+        audioSource = audioObj.GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = audioObj.AddComponent<AudioSource>();
+
+        // Estado inicial limpio
+        if (screamerCanvas != null)
+            screamerCanvas.gameObject.SetActive(true);
+        if (screamerImage != null)
+            screamerImage.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(enemyTag))
-        {
-            // Para todo lo que esté en curso y empieza de cero
-            StopAllCoroutines();
+        if (!other.CompareTag(enemyTag)) return;
+
+        StopAllCoroutines();
+
+        // ? Verifica que audioSource sigue vivo antes de usarlo
+        if (audioSource != null)
             audioSource.Stop();
 
-            if (screamerImage != null)
-                screamerImage.SetActive(false);
+        if (screamerImage != null)
+            screamerImage.SetActive(false);
 
-            StartCoroutine(ScreamerThenRespawn());
-        }
+        StartCoroutine(ScreamerThenRespawn());
     }
 
     private IEnumerator ScreamerThenRespawn()
     {
-        isRespawning = true;
-
-        // Fuerza el Canvas activo antes de todo
         if (screamerCanvas != null)
             screamerCanvas.gameObject.SetActive(true);
+
+        yield return null; // frame para que Unity procese el Canvas
 
         if (screamerImage != null)
             screamerImage.SetActive(true);
@@ -70,24 +77,19 @@ public class RespawnAfterEnemy : MonoBehaviour
         if (audioSource != null && screamerSound != null)
         {
             audioSource.clip = screamerSound;
-            audioSource.PlayScheduled(AudioSettings.dspTime + 0.01);
+            audioSource.Play();
         }
 
         yield return new WaitForSeconds(screamerDuration);
 
-        if (audioSource != null)
-            audioSource.Stop();
-
         if (screamerImage != null)
             screamerImage.SetActive(false);
 
-        // NO desactives el Canvas, solo la imagen
+        if (audioSource != null)
+            audioSource.Stop();
 
         Respawn();
-
-        isRespawning = false;
     }
-
 
     private void Respawn()
     {
