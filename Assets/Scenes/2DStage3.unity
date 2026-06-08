@@ -553,7 +553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1678295109}
   speed: 20
-  scene: 0
+  scene: isra_scene
   demonSound: {fileID: 8300000, guid: acecf74039441b547a24db0c5fc101b1, type: 3}
   sceneChanguer: {fileID: 1412457300}
   salaDestino: SalaC
